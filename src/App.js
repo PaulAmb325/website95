@@ -5,20 +5,21 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className = "desktop">
+                Ici va etre le desk top
+            </div>
+
+            <div className = "task_bar">
+                <div className = "start_menu">
+                    WINDOWS
+                </div>
+                <div className = "tasks">
+                    Ici va etre la barre des taches
+                </div>
+                <div className = "settings">
+                    Params
+                </div>
+            </div>
     </div>
   );
 }
