@@ -5,7 +5,7 @@ import './Icon.css'
 
 const icon = ({image, name, action}) => (
   <div className="icon">
-    <img src={image} alt='icon'></img>
+    <img src = {process.env.PUBLIC_URL + image} alt='icon'></img>
         {name}
   </div>
 )
