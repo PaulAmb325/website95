@@ -12,6 +12,7 @@ import ms_sans_serif_bold from "react95/dist/fonts/ms_sans_serif_bold.woff2";
 
 //Les component Internes
 import Icon from './Icon'
+import Settings from './Settings'
 
 
 //jsp cke c'est 
@@ -35,26 +36,27 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 function App() {
-  const [open, setOpen] = React.useState(false);
+  const [openStart, setOpenStart] = React.useState(false);
+  const [openSettings, setOpenSettings] = React.useState(false);
   return (
     
       <div className="App">
         <GlobalStyles />
         <ThemeProvider theme={original}>
           <div className = "desktop">
-              <Icon image='notepad_file.ico' name = "test" />
-                    
+              <Icon image='notepad_file.ico' name = "Test" />
+              {openSettings && (<Settings></Settings>)}
           </div>
         <div className = "task_bar">
-          <AppBar>
+          <AppBar fixed = {false}>
             <Toolbar style={{ justifyContent: 'space-between' }}>
-              <div style={{ position: 'relative', display: 'inline-block' }}>
-                <Button onClick={() => setOpen(!open)} active={open} style={{ fontWeight: 'bold' }}>
+              <div>
+                <Button onClick={() => setOpenStart(!openStart)} active={openStart} style={{ fontWeight: 'bold' }}>
                   <img src='windows-0.png' alt='logo' style={{ height: '20px', marginRight: 4 }}/>
                     Start
                 </Button>
-                {open && (
-                <List style={{position: 'absolute', left: '0', top: '100%'}} onClick={() => setOpen(false)}>
+                {openStart && (
+                <List style={{position: 'absolute', left: '0', bottom: '100%'}} onClick={() => setOpenStart(false)}>
                   <ListItem>
                     <span role='img' aria-label='👨‍💻'>
                       👨‍💻
@@ -77,7 +79,9 @@ function App() {
                 </List>
                 )}
               </div>
-              <TextField placeholder='Search...' width={150} />
+              <Button square={true} onClick={() => setOpenSettings(!openSettings)} active={openSettings}>
+              <img src='gears.ico' alt='settings' style={{ height: '20px'}} />
+              </Button>
             </Toolbar>
           </AppBar>
         </div>
