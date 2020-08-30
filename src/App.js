@@ -8,12 +8,15 @@ function App() {
   return (
     <div className="App">
       <div className = "desktop">
-                <Icon image={notepad_file.ico} name = "test" />
+          <Icon image='notepad_file.ico' name = "test" />
+                
       </div>
       <div className = "task_bar">
         <div className = "start_menu">
             WINDOWS
         </div>
+
+      
       <div className = "tasks">
         Ici va etre la barre des taches
       </div>
