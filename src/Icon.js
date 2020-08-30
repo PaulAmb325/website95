@@ -15,7 +15,7 @@ class Icon extends React.Component {
   
   render() {
     return(
-      <Draggable>
+      <Draggable bounds="parent">
         <div className="icon">
           <img src = {process.env.PUBLIC_URL + this.props.image} alt='icon' draggable={false}></img>
           {this.props.name}
