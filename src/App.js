@@ -13,9 +13,12 @@ import ms_sans_serif_bold from "react95/dist/fonts/ms_sans_serif_bold.woff2";
 //Les component Internes
 import Icon from './Icon'
 import Settings from './Settings'
+import Window_comp from'./Window_comp'
 
 
+ //jsp cke c'est 
 //jsp cke c'est 
+ //jsp cke c'est 
 const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'ms_sans_serif';
@@ -35,27 +38,46 @@ const GlobalStyles = createGlobalStyle`
   ${styleReset}
 `;
 
-function App() {
-  const [openStart, setOpenStart] = React.useState(false);
-  const [openSettings, setOpenSettings] = React.useState(false);
-  return (
-    
-      <div className="App">
+const openStart = false;  
+
+class App extends React.Component {
+  state = {
+    allIcons : [
+      {id: 'test', img : 'notepad_file.ico', name : 'Test'}
+    ],
+    windowsOpen : [],
+  }
+
+  addWindow(id){
+    var elem = this.state.allIcons[id]
+    this.state.windowsOpen.push(elem)
+  }
+
+
+
+
+    render(){
+      return(
+        <div className="App">
         <GlobalStyles />
         <ThemeProvider theme={original}>
           <div className = "desktop">
-              <Icon image='notepad_file.ico' name = "Test" />
-              {openSettings && (<Settings></Settings>)}
+            {this.state.allIcons.map(item => (
+              <Icon image={item.img} name={item.name}></Icon>
+            ))}
+            {this.state.windowsOpen.map(item => (
+              <Window_comp id={item.id}></Window_comp>
+            ))}
           </div>
         <div className = "task_bar">
           <AppBar fixed = {false}>
             <Toolbar style={{ justifyContent: 'space-between' }}>
               <div>
-                <Button onClick={() => setOpenStart(!openStart)} active={openStart} style={{ fontWeight: 'bold' }}>
+                <Button>
                   <img src='windows-0.png' alt='logo' style={{ height: '20px', marginRight: 4 }}/>
-                    Start
+                    <p >Start</p>
                 </Button>
-                {openStart && (
+                {/* { {openStart && (
                 <List style={{position: 'absolute', left: '0', bottom: '100%'}} onClick={() => setOpenStart(false)}>
                   <ListItem>
                     <span role='img' aria-label='👨‍💻'>
@@ -77,9 +99,9 @@ function App() {
                     Logout
                   </ListItem>
                 </List>
-                )}
+                )} } */}
               </div>
-              <Button square={true} onClick={() => setOpenSettings(!openSettings)} active={openSettings}>
+              <Button square={true}>
               <img src='gears.ico' alt='settings' style={{ height: '20px'}} />
               </Button>
             </Toolbar>
@@ -87,7 +109,9 @@ function App() {
         </div>
         </ThemeProvider>
       </div>
-  );
+      );
+    }      
 }
+         
 
 export default App;

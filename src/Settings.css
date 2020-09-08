@@ -1,5 +1,16 @@
-.setting {
-    display: inline-flex;
-    position: absolute;
-    
+.window-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+.states{
+   display: inline-block;
+   position: absolute;
+   right: 8px;
+
+}
+
+.states > .button {
+    margin: 2px;
 }
