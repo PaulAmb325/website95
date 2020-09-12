@@ -43,14 +43,39 @@ const openStart = false;
 class App extends React.Component {
   state = {
     allIcons : [
-      {id: 'test', img : 'notepad_file.ico', name : 'Test'}
+      {idIcon: 'test', img : 'notepad_file.ico', idWindow : 'testTxt'}
     ],
-    windowsOpen : [],
+    allWindows : [
+      {idWindow: 'testTxt', img : 'notepad_file.ico'},
+      {idWindow: 'setting', img: 'gears.ico', name:'Settings'}
+    ],
+    windowsOpen : [
+  
+    ]
   }
 
-  addWindow(id){
-    var elem = this.state.allIcons[id]
+  openWindow(id){
+    //TO DO: add check if a windows with this ID is already open
+    var elem;
+    for (var key in this.state.allWindows){
+      if(this.state.allWindows[key].idWindow == id){
+        //console.log(this.state.allWindows[key]);
+        elem=this.state.allWindows[key];
+      }
+    }
     this.state.windowsOpen.push(elem)
+    //Tres tres sale faut changer
+    this.forceUpdate()
+  }
+
+
+  closeWindow = (id) =>{
+    var pos = this.state.windowsOpen.map(function(e) { return e.idWindow; }).indexOf(id);
+    if(pos != -1){
+      this.state.windowsOpen.splice(pos,1)
+    }
+    //Que du sale sale
+    this.forceUpdate()
   }
 
 
@@ -66,14 +91,14 @@ class App extends React.Component {
               <Icon image={item.img} name={item.name}></Icon>
             ))}
             {this.state.windowsOpen.map(item => (
-              <Window_comp id={item.id}></Window_comp>
+              <Window_comp id={item.id} closeWindow={this.closeWindow}></Window_comp>
             ))}
           </div>
         <div className = "task_bar">
           <AppBar fixed = {false}>
-            <Toolbar style={{ justifyContent: 'space-between' }}>
+            <Toolbar>
               <div>
-                <Button>
+                <Button onClick={() => this.closeWindow('setting')}>
                   <img src='windows-0.png' alt='logo' style={{ height: '20px', marginRight: 4 }}/>
                     <p >Start</p>
                 </Button>
@@ -101,9 +126,19 @@ class App extends React.Component {
                 </List>
                 )} } */}
               </div>
-              <Button square={true}>
-              <img src='gears.ico' alt='settings' style={{ height: '20px'}} />
+              <div>
+              {this.state.windowsOpen.map(item => (
+              <Button>
+                <img src={item.img} alt='une tache' style={{ height: '20px'}} />
+                {item.name}
               </Button>
+              ))}
+              </div>
+            <div className='menu'>
+              <Button square={true} onClick={() => this.openWindow('setting')}>
+                <img src='gears.ico' alt='settings' style={{ height: '20px'}} />
+              </Button>
+            </div>
             </Toolbar>
           </AppBar>
         </div>

@@ -28,6 +28,12 @@ body {
 	font-family: 'ms_sans_serif';
     src: url('${ms_sans_serif_bold}') format('woff2');
 }
+
+.menu{
+	position: absolute;
+	right: 0;
+	margin-right: 8px;
+}
 	
 
 @font-face {

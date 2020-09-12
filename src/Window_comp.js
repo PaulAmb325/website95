@@ -7,16 +7,8 @@ import { Window, WindowHeader, WindowContent,Tabs, Tab, TabBody, Fieldset, Check
 
 import './Window_comp.css'
 
-function Window_comp() {
 
-    
-    const [state, setState] = useState({      
-        activeTab: 0
-    });
-      
-    const handleChange = (e, value) => setState({ activeTab: value });
-      
-    const { activeTab } = state;
+function Window_comp(id,closeWindow) {
 
     return(
     <div className = "window">
@@ -31,7 +23,7 @@ function Window_comp() {
                     <Button square={true} className='button'>
                     C
                     </Button>
-                    <Button>
+                    <Button onClick={() => closeWindow(id)}>
                     X
                     </Button>
                 </div>  
