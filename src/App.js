@@ -43,27 +43,36 @@ const openStart = false;
 class App extends React.Component {
   state = {
     allIcons : [
-      {idIcon: 'test', img : 'notepad_file.ico', idWindow : 'testTxt'}
+      {idIcon: 'test', img : 'notepad_file.ico', name : 'test', idWindow : 'testTxt'}
     ],
     allWindows : [
-      {idWindow: 'testTxt', img : 'notepad_file.ico'},
+      {idWindow: 'testTxt', img : 'notepad_file.ico', name:'Text'},
       {idWindow: 'setting', img: 'gears.ico', name:'Settings'}
     ],
     windowsOpen : [
-  
+      {idWindow: 'testTxt', img : 'notepad_file.ico', name:'Text'}
     ]
   }
 
   openWindow(id){
-    //TO DO: add check if a windows with this ID is already open
+    var exist = false;
     var elem;
-    for (var key in this.state.allWindows){
-      if(this.state.allWindows[key].idWindow == id){
-        //console.log(this.state.allWindows[key]);
-        elem=this.state.allWindows[key];
+    if(this.state.windowsOpen.length > 0){
+      for (var key in this.state.windowsOpen){
+        if(this.state.windowsOpen[key].idWindow == id){
+          exist = true;
+        }
       }
     }
-    this.state.windowsOpen.push(elem)
+    if(!exist){
+      for (var key in this.state.allWindows){
+        if(this.state.allWindows[key].idWindow == id){
+          //console.log(this.state.allWindows[key]);
+          elem=this.state.allWindows[key];
+          this.state.windowsOpen.push(elem)
+        }
+      }
+    }
     //Tres tres sale faut changer
     this.forceUpdate()
   }
@@ -73,7 +82,9 @@ class App extends React.Component {
     var pos = this.state.windowsOpen.map(function(e) { return e.idWindow; }).indexOf(id);
     if(pos != -1){
       this.state.windowsOpen.splice(pos,1)
+      console.log(id);
     }
+    
     //Que du sale sale
     this.forceUpdate()
   }
@@ -91,7 +102,7 @@ class App extends React.Component {
               <Icon image={item.img} name={item.name}></Icon>
             ))}
             {this.state.windowsOpen.map(item => (
-              <Window_comp id={item.id} closeWindow={this.closeWindow}></Window_comp>
+              <Window_comp id={item.idWindow} closeWindow={this.closeWindow}></Window_comp>
             ))}
           </div>
         <div className = "task_bar">
