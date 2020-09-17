@@ -51,7 +51,45 @@ class App extends React.Component {
     ],
     windowsOpen : [
       {idWindow: 'testTxt', img : 'notepad_file.ico', name:'Text'}
+    ],
+    windowsMinimized : [
+      
     ]
+  }
+  //Trouver un moyen de ne plus afficher les windows minimized (display none maybe)
+  minimizeWindow = (id) =>{
+    var exist = false;
+    var already = false;
+    var elem;
+    //Check if id is opened
+    if(this.state.windowsOpen.length > 0){
+      for (var key in this.state.windowsOpen){
+        if(this.state.windowsOpen[key].idWindow == id){
+          exist = true;
+          elem = this.state.windowsOpen[key]
+        }
+      }
+    }
+    //Check if id is already minimized
+    if(this.state.windowsMinimized.length > 0){
+      for (var key in this.state.windowsMinimized){
+        if(this.state.windowsMinimized[key].idWindow == id){
+          already = true;
+        }
+      }
+    }
+    //Add to windowsMinimized
+    if(!already && exist){
+      //Correct way to update le state a remplacer le sale sale
+      this.setState({windowsMinimized: [...this.state.windowsMinimized, elem]});
+      console.log('jupdate le state ', this.state.windowsMinimized);
+    }
+    console.log('je print le state ', this.state.windowsMinimized);
+  }
+
+  unminimizeWindow = (id) =>{
+    //Check if id is minimized
+    //delete from minimized
   }
 
   openWindow(id){
@@ -102,7 +140,7 @@ class App extends React.Component {
               <Icon image={item.img} name={item.name}></Icon>
             ))}
             {this.state.windowsOpen.map(item => (
-              <Window_comp id={item.idWindow} closeWindow={this.closeWindow}></Window_comp>
+              <Window_comp id={item.idWindow} closeWindow={this.closeWindow} minimizeWindow={this.minimizeWindow} ></Window_comp>
             ))}
           </div>
         <div className = "task_bar">
