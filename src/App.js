@@ -47,10 +47,12 @@ class App extends React.Component {
     ],
     allWindows : [
       {idWindow: 'testTxt', img : 'notepad_file.ico', name:'Text'},
-      {idWindow: 'setting', img: 'gears.ico', name:'Settings'}
+      {idWindow: 'setting', img: 'gears.ico', name:'Settings'},
+      {idWindow: 'TEST', img: 'gears.ico', name:'TEST'}
     ],
     windowsOpen : [
-      {idWindow: 'testTxt', img : 'notepad_file.ico', name:'Text'}
+      {idWindow: 'testTxt', img : 'notepad_file.ico', name:'Text'},
+      {idWindow: 'TEST', img: 'gears.ico', name:'TEST'}
     ],
     windowsMinimized : [
       
@@ -66,7 +68,7 @@ class App extends React.Component {
       for (var key in this.state.windowsOpen){
         if(this.state.windowsOpen[key].idWindow == id){
           exist = true;
-          elem = this.state.windowsOpen[key]
+          elem = this.state.windowsOpen[key];
         }
       }
     }
@@ -87,9 +89,14 @@ class App extends React.Component {
     console.log('je print le state ', this.state.windowsMinimized);
   }
 
-  unminimizeWindow = (id) =>{
-    //Check if id is minimized
-    //delete from minimized
+  unminimizeWindow(id){
+      var pos = this.state.windowsMinimized.map(function(e) { return e.idWindow; }).indexOf(id);
+      if(pos != -1){
+        console.log('a')
+        this.state.windowsMinimized.splice(pos,1)
+      }
+    console.log('unminim',this.state);
+    
   }
 
   openWindow(id){
@@ -105,26 +112,27 @@ class App extends React.Component {
     if(!exist){
       for (var key in this.state.allWindows){
         if(this.state.allWindows[key].idWindow == id){
-          //console.log(this.state.allWindows[key]);
           elem=this.state.allWindows[key];
-          this.state.windowsOpen.push(elem)
+          this.setState({windowsOpen: [...this.state.windowsOpen, elem]});
         }
       }
     }
-    //Tres tres sale faut changer
-    this.forceUpdate()
   }
 
 
-  closeWindow = (id) =>{
-    var pos = this.state.windowsOpen.map(function(e) { return e.idWindow; }).indexOf(id);
-    if(pos != -1){
-      this.state.windowsOpen.splice(pos,1)
-      console.log(id);
-    }
-    
+  closeWindow = CloseId =>{
+    //TO DO correct bug windows change place after closing
+    //var pos = this.state.windowsOpen.map(function(e) { return e.idWindow; }).indexOf(id);
+    //if(pos != -1){
+      const winOp = this.state.windowsOpen.filter(item => item.idWindow !== CloseId);
+      console.log('id',CloseId)
+      console.log('winop',winOp)
+      this.setState({windowsOpen: winOp})
+      //this.state.windowsOpen.splice(pos,1)
+    //}
+    console.log('je print le state ', this.state);
     //Que du sale sale
-    this.forceUpdate()
+    //this.forceUpdate()
   }
 
 
@@ -177,7 +185,7 @@ class App extends React.Component {
               </div>
               <div>
               {this.state.windowsOpen.map(item => (
-              <Button>
+              <Button onClick={() => this.unminimizeWindow(item.id)}>
                 <img src={item.img} alt='une tache' style={{ height: '20px'}} />
                 {item.name}
               </Button>

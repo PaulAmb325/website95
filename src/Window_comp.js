@@ -37,7 +37,6 @@ class Window_comp extends Component {
             //The pb come frome the draggable that put a transform translate :( override an !important ???
             top:'0px',
             left: '0px',
-
             position: 'absolute',
             width: '100%',
             height: '100%',
@@ -48,10 +47,10 @@ class Window_comp extends Component {
             width: 350,
         }
         return(
-            <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ? false :{x: 0, y: 0}}  onStart={() => this.state.full ? true:false}>
-                <Window resizable style = {this.state.full ? windowNormal : windowFull}>
+            <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}:false}  onStart={() => this.state.full ? false :true}>
+                <Window resizable style = {this.state.full ?  windowFull: windowNormal}>
                     <WindowHeader className="windows-header">
-                        Settings
+                        {id}
                         <div className='states'>
                             <Button onClick={() => minimizeWindow(id)} square={true} className='button'>
                             _
