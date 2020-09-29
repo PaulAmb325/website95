@@ -15,12 +15,13 @@ class Icon extends React.Component {
       y : this.props.y
   };
   }
-
   
   render() {
+    const openWindow = this.props.openWindow;
+
     return(
       <Draggable bounds="parent" defaultPosition={{x: this.state.x, y: this.state.y}}>
-        <div className="icon">
+        <div className="icon" onDoubleClick={() => openWindow(this.props.idWindow)}>
           <img src = {process.env.PUBLIC_URL + this.props.image} alt='icon' draggable={false}></img>
           <p>{this.props.name}</p>
         </div> 

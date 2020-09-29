@@ -58,15 +58,17 @@ class Window_comp extends Component {
             position: 'absolute',
             width: '100%',
             height: '100%',
+            //display: 'none'
             
         }
         const windowNormal = {
             position: 'absolute',
             width: 350,
         }
+
         return(
                 <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}: {x:this.state.coord.x, y:this.state.coord.y}}  onStart={() => this.state.full ? false :true} defaultPosition={{x: this.state.x, y: this.state.y}} onDrag={this.handleDrag}>
-                <Window resizable style = {this.state.full ?  windowFull: windowNormal}>
+                <Window style = {this.state.full ?  windowFull: windowNormal}>
                     <WindowHeader className="windows-header">
                         {id}
                         <div className='states'>

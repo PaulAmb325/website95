@@ -42,9 +42,10 @@ const openStart = false;
 
 class App extends React.Component {
   state = {
+    activeWindow : "",
     allIcons : [
       {idIcon: 'test', img : 'notepad_file.ico', name : 'test', idWindow : 'testTxt'},
-      {idIcon: 'testTxt', img : 'gears.ico', name:'Text' , idWindow:'Test'}
+      {idIcon: 'testTxt', img : 'gears.ico', name:'Text' , idWindow:'TEST'}
     ],
     allWindows : [
       {idWindow: 'testTxt', img : 'notepad_file.ico', name:'Text'},
@@ -100,7 +101,9 @@ class App extends React.Component {
     
   }
 
-  openWindow(id){
+  openWindow = id =>{
+    console.log('OUI  :  ', id)
+    console.log(this.state)
     var exist = false;
     var elem;
     if(this.state.windowsOpen.length > 0){
@@ -147,7 +150,7 @@ class App extends React.Component {
         <ThemeProvider theme={original}>
           <div className = "desktop">
             {this.state.allIcons.map(item => (
-              <Icon image={item.img} name={item.name} x={50 * this.getIconPosById(item.idIcon)} y={0}></Icon>
+              <Icon openWindow={this.openWindow} idWindow={item.idWindow} image={item.img} name={item.name} x={50 * this.getIconPosById(item.idIcon)} y={0}></Icon>
             ))}
             {this.state.windowsOpen.map(item => (
               <Window_comp key={item.idWindow} id={item.idWindow} closeWindow={this.closeWindow} minimizeWindow={this.minimizeWindow} x={5 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)}></Window_comp>
