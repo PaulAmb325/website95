@@ -49,30 +49,45 @@ class Window_comp extends Component {
         });
       };
 
+    handleStyle(){
+        //Based on the state return the correct style
+        //TO DO: ADD the z index
+        var style = {};
+        //Style full window
+        if(this.state.full){
+            style = {
+                top:'0px',
+                left: '0px',
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+            }
+        //Style minimize
+        }else if(!this.state.open){
+            style = {
+                display : 'none',
+            }
+        }else {
+        //Style classique
+            style = {
+                position: 'absolute',
+                width: 350,
+            }
+        }
+        return style;
+    }
+
     render(){
         //TO DO: Change background of coresponding button according to state
         const {id, closeWindow, minimizeWindow} = this.props;
-        const windowFull = {
-            top:'0px',
-            left: '0px',
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            //display: 'none'
-            
-        }
-        const windowNormal = {
-            position: 'absolute',
-            width: 350,
-        }
 
         return(
                 <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}: {x:this.state.coord.x, y:this.state.coord.y}}  onStart={() => this.state.full ? false :true} defaultPosition={{x: this.state.x, y: this.state.y}} onDrag={this.handleDrag}>
-                <Window style = {this.state.full ?  windowFull: windowNormal}>
+                <Window style = {this.handleStyle()}>
                     <WindowHeader className="windows-header">
                         {id}
                         <div className='states'>
-                            <Button onClick={() => minimizeWindow(id)} square={true} className='button'>
+                            <Button onClick={() => this.changeOpen()} square={true} className='button'>
                             _
                             </Button>
                             <Button onClick={() => this.changefull()} square={true} className='button'>

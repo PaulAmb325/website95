@@ -61,7 +61,7 @@ class App extends React.Component {
     ]
   }
   //Trouver un moyen de ne plus afficher les windows minimized (display none maybe)
-  minimizeWindow = (id) =>{
+  /* minimizeWindow = (id) =>{
     var exist = false;
     var already = false;
     var elem;
@@ -89,9 +89,9 @@ class App extends React.Component {
       console.log('jupdate le state ', this.state.windowsMinimized);
     }
     console.log('je print le state ', this.state.windowsMinimized);
-  }
+  } */
 
-  unminimizeWindow(id){
+/*   unminimizeWindow(id){
       var pos = this.state.windowsMinimized.map(function(e) { return e.idWindow; }).indexOf(id);
       if(pos != -1){
         console.log('a')
@@ -99,9 +99,17 @@ class App extends React.Component {
       }
     console.log('unminim',this.state);
     
+  } */
+
+  setActive = id =>{
+    //change the z index of the window
+    //set all the task to active
+    //set the id task to active
+    //(set the wind comp state to open)
   }
 
   openWindow = id =>{
+    //TO DO: Handle the creation of z index;
     console.log('OUI  :  ', id)
     console.log(this.state)
     var exist = false;
@@ -153,7 +161,7 @@ class App extends React.Component {
               <Icon openWindow={this.openWindow} idWindow={item.idWindow} image={item.img} name={item.name} x={50 * this.getIconPosById(item.idIcon)} y={0}></Icon>
             ))}
             {this.state.windowsOpen.map(item => (
-              <Window_comp key={item.idWindow} id={item.idWindow} closeWindow={this.closeWindow} minimizeWindow={this.minimizeWindow} x={5 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)}></Window_comp>
+              <Window_comp key={item.idWindow} id={item.idWindow} closeWindow={this.closeWindow} minimizeWindow={this.minimizeWindow} x={15 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)}></Window_comp>
             ))}
           </div>
         <div className = "task_bar">
