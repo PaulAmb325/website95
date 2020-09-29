@@ -150,14 +150,14 @@ class App extends React.Component {
               <Icon image={item.img} name={item.name} x={50 * this.getIconPosById(item.idIcon)} y={0}></Icon>
             ))}
             {this.state.windowsOpen.map(item => (
-              <Window_comp id={item.idWindow} closeWindow={this.closeWindow} minimizeWindow={this.minimizeWindow} x={5 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)}></Window_comp>
+              <Window_comp key={item.idWindow} id={item.idWindow} closeWindow={this.closeWindow} minimizeWindow={this.minimizeWindow} x={5 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)}></Window_comp>
             ))}
           </div>
         <div className = "task_bar">
           <AppBar fixed = {false}>
             <Toolbar>
               <div>
-                <Button onClick={() => this.test('testTxt')}>
+                <Button className="startMenu">
                   <img src='windows-0.png' alt='logo' style={{ height: '20px', marginRight: 4 }}/>
                     <p >Start</p>
                 </Button>
@@ -189,7 +189,7 @@ class App extends React.Component {
               {this.state.windowsOpen.map(item => (
               <Button onClick={() => this.unminimizeWindow(item.id)}>
                 <img src={item.img} alt='une tache' style={{ height: '20px'}} />
-                {item.name}
+                  <p>{item.name}</p>
               </Button>
               ))}
               </div>

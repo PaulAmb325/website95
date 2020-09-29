@@ -23,8 +23,14 @@ body {
 	flex-direction: column;
 }
 
-.task_bar p{
+.task_bar .startMenu p{
 	font-weight: 600;
+	font-family: 'ms_sans_serif';
+    src: url('${ms_sans_serif_bold}') format('woff2');
+}
+
+.task_bar p{
+	font-weight: 500;
 	font-family: 'ms_sans_serif';
     src: url('${ms_sans_serif_bold}') format('woff2');
 }

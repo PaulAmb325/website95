@@ -35,12 +35,11 @@ class Window_comp extends Component {
 
     changefull(){
         this.setState({full : !this.state.full})
-        console.log('state is : ')
-        console.log(this.state)
-        
     }
 
     handleDrag = (e, ui) => {
+        //console.log('state is : ')
+        //console.log(this.state)
         const {x, y} = this.state.coord;
         this.setState({
           coord: {
@@ -54,7 +53,6 @@ class Window_comp extends Component {
         //TO DO: Change background of coresponding button according to state
         const {id, closeWindow, minimizeWindow} = this.props;
         const windowFull = {
-            //The pb come frome the draggable that put a transform translate :( override an !important ???
             top:'0px',
             left: '0px',
             position: 'absolute',
@@ -67,7 +65,7 @@ class Window_comp extends Component {
             width: 350,
         }
         return(
-                <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}:false}  onStart={() => this.state.full ? false :true} defaultPosition={{x: this.state.x, y: this.state.y}} onDrag={this.handleDrag}>
+                <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}: {x:this.state.coord.x, y:this.state.coord.y}}  onStart={() => this.state.full ? false :true} defaultPosition={{x: this.state.x, y: this.state.y}} onDrag={this.handleDrag}>
                 <Window resizable style = {this.state.full ?  windowFull: windowNormal}>
                     <WindowHeader className="windows-header">
                         {id}
