@@ -7,18 +7,22 @@ import './Icon.css'
 
 
 class Icon extends React.Component {
+  
   constructor(props){
     super(props)
-
+    this.state = {
+      x: this.props.x, 
+      y : this.props.y
+  };
   }
 
   
   render() {
     return(
-      <Draggable bounds="parent">
+      <Draggable bounds="parent" defaultPosition={{x: this.state.x, y: this.state.y}}>
         <div className="icon">
           <img src = {process.env.PUBLIC_URL + this.props.image} alt='icon' draggable={false}></img>
-          {this.props.name}
+          <p>{this.props.name}</p>
         </div> 
       </Draggable>
     )
@@ -30,7 +34,9 @@ class Icon extends React.Component {
 Icon.propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  action: PropTypes.func
+  action: PropTypes.func,
+  x: PropTypes.number.isRequired,
+  y: PropTypes.number.isRequired,
 }
 
 export default Icon

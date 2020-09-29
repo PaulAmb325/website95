@@ -5,6 +5,11 @@ import Draggable from 'react-draggable';
 
 import { Window, WindowHeader, WindowContent,Tabs, Tab, TabBody, Fieldset, Checkbox, NumberField, Button } from 'react95';
 
+//import { Resizable, ResizableBox } from 'react-resizable';
+import {Resizable} from 're-resizable';
+
+
+
 import './Window_comp.css'
 import { isValidElement } from 'react';
 
@@ -14,8 +19,12 @@ class Window_comp extends Component {
         super(props);
         //Full is if a windows is full screen or not and open is if the window is fully reduced or not
         this.state = {
-            full: false, 
+            full: false,
             open : true,
+            coord : {
+                x : this.props.x,
+                y : this.props.y,
+            }   
         };
     }
     
@@ -28,7 +37,18 @@ class Window_comp extends Component {
         this.setState({full : !this.state.full})
         console.log('state is : ')
         console.log(this.state)
+        
     }
+
+    handleDrag = (e, ui) => {
+        const {x, y} = this.state.coord;
+        this.setState({
+          coord: {
+            x: x + ui.deltaX,
+            y: y + ui.deltaY,
+          }
+        });
+      };
 
     render(){
         //TO DO: Change background of coresponding button according to state
@@ -47,7 +67,7 @@ class Window_comp extends Component {
             width: 350,
         }
         return(
-            <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}:false}  onStart={() => this.state.full ? false :true}>
+                <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}:false}  onStart={() => this.state.full ? false :true} defaultPosition={{x: this.state.x, y: this.state.y}} onDrag={this.handleDrag}>
                 <Window resizable style = {this.state.full ?  windowFull: windowNormal}>
                     <WindowHeader className="windows-header">
                         {id}
@@ -66,12 +86,20 @@ class Window_comp extends Component {
                     <WindowContent>
                         Ici on met le contenu que l'on veut en fct de l'id
                         This id = {id}
+                        Coordinate x = {this.state.coord.x} y = {this.state.coord.y}
                     </WindowContent>
                 </Window>
-            </Draggable>         
+                </Draggable>        
             );
         }
     }
-   
+
+Window_comp.propTypes = {
+    id: PropTypes.string.isRequired,
+    closeWindow: PropTypes.func.isRequired,
+    minimizeWindow: PropTypes.func.isRequired,
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired,
+    }
 
 export default Window_comp

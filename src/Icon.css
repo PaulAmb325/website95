@@ -1,5 +1,14 @@
 .icon{
     display: inline-flex;
+    position: absolute;
     flex-direction: column;
     text-align: center;
+    vertical-align: center;
+    height: 75px;
+    
+}
+
+.icon img{
+    width: 50px;
+    max-width: 100%;
 }

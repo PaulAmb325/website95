@@ -43,7 +43,8 @@ const openStart = false;
 class App extends React.Component {
   state = {
     allIcons : [
-      {idIcon: 'test', img : 'notepad_file.ico', name : 'test', idWindow : 'testTxt'}
+      {idIcon: 'test', img : 'notepad_file.ico', name : 'test', idWindow : 'testTxt'},
+      {idIcon: 'testTxt', img : 'gears.ico', name:'Text' , idWindow:'Test'}
     ],
     allWindows : [
       {idWindow: 'testTxt', img : 'notepad_file.ico', name:'Text'},
@@ -122,19 +123,20 @@ class App extends React.Component {
 
   closeWindow = CloseId =>{
     //TO DO correct bug windows change place after closing
-    //var pos = this.state.windowsOpen.map(function(e) { return e.idWindow; }).indexOf(id);
-    //if(pos != -1){
-      const winOp = this.state.windowsOpen.filter(item => item.idWindow !== CloseId);
-      console.log('id',CloseId)
-      console.log('winop',winOp)
-      this.setState({windowsOpen: winOp})
-      //this.state.windowsOpen.splice(pos,1)
-    //}
+    const winOp = this.state.windowsOpen.filter(item => item.idWindow !== CloseId);
+    this.setState({windowsOpen: winOp});
     console.log('je print le state ', this.state);
-    //Que du sale sale
-    //this.forceUpdate()
   }
 
+  getIconPosById(id) {
+    var pos = this.state.allIcons.map(function(e) { return e.idIcon; }).indexOf(id);
+    return pos;
+  }
+
+  getWindPosById(id) {
+    var pos = this.state.windowsOpen.map(function(e) { return e.idWindow; }).indexOf(id);
+    return pos;
+  }
 
 
 
@@ -145,17 +147,17 @@ class App extends React.Component {
         <ThemeProvider theme={original}>
           <div className = "desktop">
             {this.state.allIcons.map(item => (
-              <Icon image={item.img} name={item.name}></Icon>
+              <Icon image={item.img} name={item.name} x={50 * this.getIconPosById(item.idIcon)} y={0}></Icon>
             ))}
             {this.state.windowsOpen.map(item => (
-              <Window_comp id={item.idWindow} closeWindow={this.closeWindow} minimizeWindow={this.minimizeWindow} ></Window_comp>
+              <Window_comp id={item.idWindow} closeWindow={this.closeWindow} minimizeWindow={this.minimizeWindow} x={5 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)}></Window_comp>
             ))}
           </div>
         <div className = "task_bar">
           <AppBar fixed = {false}>
             <Toolbar>
               <div>
-                <Button onClick={() => this.closeWindow('setting')}>
+                <Button onClick={() => this.test('testTxt')}>
                   <img src='windows-0.png' alt='logo' style={{ height: '20px', marginRight: 4 }}/>
                     <p >Start</p>
                 </Button>
