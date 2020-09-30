@@ -24,10 +24,15 @@ class Window_comp extends Component {
             coord : {
                 x : this.props.x,
                 y : this.props.y,
-            }   
+            },
+            z : this.props.z
         };
     }
-    
+
+    //Use dans le parents pour mettre le open a true
+    setOpenTrue = () => {
+        this.setState({open: true})
+    }
 
     changeOpen(){
         this.setState({open : !this.state.open})
@@ -61,6 +66,7 @@ class Window_comp extends Component {
                 position: 'absolute',
                 width: '100%',
                 height: '100%',
+                zIndex: this.state.coord.z,
             }
         //Style minimize
         }else if(!this.state.open){
@@ -72,6 +78,7 @@ class Window_comp extends Component {
             style = {
                 position: 'absolute',
                 width: 350,
+                zIndex: this.state.coord.z,
             }
         }
         return style;
@@ -101,7 +108,10 @@ class Window_comp extends Component {
                     <WindowContent>
                         Ici on met le contenu que l'on veut en fct de l'id
                         This id = {id}
+                        <br/>
                         Coordinate x = {this.state.coord.x} y = {this.state.coord.y}
+                        <br/>
+                        This z = {this.state.z}
                     </WindowContent>
                 </Window>
                 </Draggable>        
