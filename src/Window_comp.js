@@ -29,6 +29,13 @@ class Window_comp extends Component {
         };
     }
 
+    componentDidUpdate(prevProps, prevStates){
+        if(prevProps.z !== this.props.z){
+            console.log('HHHHHHHH')
+            this.setState({z: this.props.z})
+        }
+    }
+
     //Use dans le parents pour mettre le open a true
     setOpenTrue = () => {
         this.setState({open: true})

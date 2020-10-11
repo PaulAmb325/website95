@@ -121,9 +121,6 @@ class App extends React.Component {
     this.setState({windowsOpen:win})
     //set the id task to active
     this.setState({activeWindow: win[pos].idWindow})
-    //(set the wind comp state to open)
-    const ref = useRef(null);
-    ref.current.setOpenTrue();
   }
 
   getMaxZ(){
