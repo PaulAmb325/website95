@@ -30,9 +30,8 @@ class Window_comp extends Component {
     }
 
     componentDidUpdate(prevProps, prevStates){
-        if(prevProps.z !== this.props.z){
-            console.log('HHHHHHHH')
-            this.setState({z: this.props.z})
+        if(prevProps.changeIndex !== this.props.changeIndex){
+            this.changeOpen();
         }
     }
 
@@ -42,11 +41,24 @@ class Window_comp extends Component {
     }
 
     changeOpen(){
-        this.setState({open : !this.state.open})
+        //console.log("changeOpen");
+        this.setState({open : !this.state.open});
+        //console.log(this.state.open);
     }
 
     changefull(){
         this.setState({full : !this.state.full})
+        this.props.setActive(this.props.id);
+    }
+
+    handleDragStart = () => {
+        this.props.setActive(this.props.id);
+        if(this.state.full){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     handleDrag = (e, ui) => {
@@ -59,33 +71,33 @@ class Window_comp extends Component {
             y: y + ui.deltaY,
           }
         });
+        //this.props.setActive(this.props.id);
       };
 
-    handleStyle(){
+    handleStyle() {
         //Based on the state return the correct style
         //TO DO: ADD the z index
+        //Z-index change by order of render so just change in the list
         var style = {};
-        //Style full window
-        if(this.state.full){
+        //Style minimized
+        if(!this.state.open){
+            style = {
+                display : 'none',
+            }
+        //Style full
+        }else if(this.state.full){
             style = {
                 top:'0px',
                 left: '0px',
                 position: 'absolute',
                 width: '100%',
                 height: '100%',
-                zIndex: this.state.coord.z,
-            }
-        //Style minimize
-        }else if(!this.state.open){
-            style = {
-                display : 'none',
             }
         }else {
         //Style classique
             style = {
                 position: 'absolute',
                 width: 350,
-                zIndex: this.state.coord.z,
             }
         }
         return style;
@@ -93,10 +105,10 @@ class Window_comp extends Component {
 
     render(){
         //TO DO: Change background of coresponding button according to state
-        const {id, closeWindow, minimizeWindow} = this.props;
+        const {id, closeWindow} = this.props;
 
         return(
-                <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}: {x:this.state.coord.x, y:this.state.coord.y}}  onStart={() => this.state.full ? false :true} defaultPosition={{x: this.state.x, y: this.state.y}} onDrag={this.handleDrag}>
+                <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}: {x:this.state.coord.x, y:this.state.coord.y}}  onStart={this.handleDragStart} defaultPosition={{x: this.state.x, y: this.state.y}} onDrag={this.handleDrag}>
                 <Window style = {this.handleStyle()}>
                     <WindowHeader className="windows-header">
                         {id}
@@ -112,7 +124,7 @@ class Window_comp extends Component {
                             </Button>
                         </div>  
                     </WindowHeader>
-                    <WindowContent>
+                    <WindowContent onClick={() => this.props.setActive(id)}>
                         Ici on met le contenu que l'on veut en fct de l'id
                         This id = {id}
                         <br/>

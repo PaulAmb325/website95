@@ -41,9 +41,13 @@ const GlobalStyles = createGlobalStyle`
 //const ref = useRef(null);
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.child = React.createRef();
+  }
   state = {
-    
-    activeWindow : 'TEST',
+    activeWindow : "TEST",
+
     allIcons : [
       {idIcon: 'test', img : 'notepad_file.ico', name : 'test', idWindow : 'testTxt'},
       {idIcon: 'testTxt', img : 'gears.ico', name:'Text' , idWindow:'TEST'}
@@ -54,9 +58,14 @@ class App extends React.Component {
       {idWindow: 'TEST', img: 'gears.ico', name:'TEST'}
     ],
     windowsOpen : [
-      {idWindow: 'testTxt', img : 'notepad_file.ico', name:'Text', z : 1},
-      {idWindow: 'TEST', img: 'gears.ico', name:'TEST', z : 2}
+      {idWindow: 'testTxt', img : 'notepad_file.ico', name:'Text', changeIndex: 0},
+      {idWindow: 'TEST', img: 'gears.ico', name:'TEST', changeIndex: 0}
     ],
+    windowsOpenRender : [
+      {idWindow: 'testTxt', img : 'notepad_file.ico', name:'Text', changeIndex: 0},
+      {idWindow: 'TEST', img: 'gears.ico', name:'TEST', changeIndex: 0}
+    ]
+
   }
   //Trouver un moyen de ne plus afficher les windows minimized (display none maybe)
   /* minimizeWindow = (id) =>{
@@ -110,20 +119,40 @@ class App extends React.Component {
     this.setState({windowsOpen:win})
   } */
 
-  setActive = id =>{
-    //change the z index of the window
-    console.log("state",this.state)
-    var win = this.state.windowsOpen;
-    var pos = this.state.windowsOpen.map(function(e) { return e.idWindow; }).indexOf(id);
-    console.log("winpos",win, 'pos',pos)
-    console.log('itemid', id)
-    win[pos].z = this.getMaxZ() + 1;
-    this.setState({windowsOpen:win})
-    //set the id task to active
-    this.setState({activeWindow: win[pos].idWindow})
+
+
+  array_move(arr, old_index, new_index) {
+    while (old_index < 0) {
+        old_index += arr.length;
+    }
+    while (new_index < 0) {
+        new_index += arr.length;
+    }
+    if (new_index >= arr.length) {
+        var k = new_index - arr.length + 1;
+        while (k--) {
+            arr.push(undefined);
+        }
+    }
+    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+    return arr; // for testing purposes
+  };
+
+  reordonateOrder = id => {
+    //console.log(this.state.activeWindow);
+    var pos = this.getWindRendPosByID(id);
+    var winds = this.state.windowsOpenRender;
+    this.array_move(winds,pos,this.state.windowsOpenRender.length-1);
+    this.setState({windowsOpenRender:winds});
   }
 
-  getMaxZ(){
+  setActive = id =>{
+    this.reordonateOrder(id);
+    this.setState({activeWindow: id});
+  }
+
+
+  /* getMaxZ(){
     //Return the higest Z of all windows
     var maxZ = 0;
     if(this.state.windowsOpen.length > 0){
@@ -134,12 +163,24 @@ class App extends React.Component {
       }
     }
     return maxZ
+  } */
+  unminimizeWindow(id){
+    this.setState({activeWindow:id})
+    var wRen = this.state.windowsOpenRender;
+    var wOpe = this.state.windowsOpen;
+    var wPos = this.getWindPosById(id);
+    var wRPos = this.getWindRendPosByID(id);
+    console.log(wRen[wRPos]);
+    wRen[wRPos].changeIndex = wRen[wRPos].changeIndex + 1;
+    wOpe[wPos].changeIndex = wOpe[wPos].changeIndex + 1;
+    this.setState({windowsOpen: wOpe});
+    this.setState({windowsOpenRender: wRen});
   }
 
   openWindow = id =>{
     //TO DO: Handle the creation of z index;
     console.log('OUI  :  ', id)
-    console.log(this.state)
+    //console.log(this.state)
     var exist = false;
     var elem;
     if(this.state.windowsOpen.length > 0){
@@ -153,8 +194,10 @@ class App extends React.Component {
       for (var key in this.state.allWindows){
         if(this.state.allWindows[key].idWindow == id){
           elem=this.state.allWindows[key];
-          elem.z = this.getMaxZ() + 1;
+          elem.changeIndex = 0;
+          //elem.z = this.getMaxZ() + 1;
           this.setState({windowsOpen: [...this.state.windowsOpen, elem]});
+          this.setState({windowsOpenRender: [...this.state.windowsOpenRender, elem]});
           this.setState({activeWindow: elem.idWindow})
         }
       }
@@ -163,10 +206,19 @@ class App extends React.Component {
 
 
   closeWindow = CloseId =>{
-    //TO DO correct bug windows change place after closing
+    const winOpRen = this.state.windowsOpenRender.filter(item => item.idWindow !== CloseId); 
     const winOp = this.state.windowsOpen.filter(item => item.idWindow !== CloseId);
-    this.setState({windowsOpen: winOp});
-    console.log('je print le state ', this.state);
+
+    this.setState({windowsOpenRender: winOpRen}, function (){
+      console.log(winOpRen)
+      console.log(this.state.windowsOpenRender)
+    });
+    this.setState({windowsOpen: winOp}, function(){
+      console.log(this.state.windowsOpen)
+    });
+    
+    
+    
   }
 
   getIconPosById(id) {
@@ -176,6 +228,11 @@ class App extends React.Component {
 
   getWindPosById(id) {
     var pos = this.state.windowsOpen.map(function(e) { return e.idWindow; }).indexOf(id);
+    return pos;
+  }
+
+  getWindRendPosByID(id) {
+    var pos = this.state.windowsOpenRender.map(function(e) { return e.idWindow; }).indexOf(id);
     return pos;
   }
 
@@ -190,8 +247,8 @@ class App extends React.Component {
             {this.state.allIcons.map(item => (
               <Icon openWindow={this.openWindow} idWindow={item.idWindow} image={item.img} name={item.name} x={50 * this.getIconPosById(item.idIcon)} y={0}></Icon>
             ))}
-            {this.state.windowsOpen.map(item => (
-              <Window_comp key={item.idWindow} id={item.idWindow} closeWindow={this.closeWindow} minimizeWindow={this.minimizeWindow} x={15 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)} z={item.z}></Window_comp>
+            {this.state.windowsOpenRender.map(item => (
+              <Window_comp key={item.idWindow} id={item.idWindow} closeWindow={this.closeWindow} setActive={this.setActive} x={15 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)} changeIndex={item.changeIndex}></Window_comp>
             ))}
           </div>
         <div className = "task_bar">
@@ -228,7 +285,7 @@ class App extends React.Component {
               </div>
               <div>
               {this.state.windowsOpen.map(item => (
-              <Button onClick={() => this.setActive(item.idWindow)}  active={item.idWindow == this.state.activeWindow ? true : false}>
+              <Button onClick={() => this.unminimizeWindow(item.idWindow)}  active={item.idWindow == this.state.activeWindow ? true : false}>
                 <img src={item.img} alt='une tache' style={{ height: '20px'}} />
                   <p>{item.name}</p>
               </Button>
