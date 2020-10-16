@@ -98,6 +98,8 @@ class Window_comp extends Component {
             style = {
                 position: 'absolute',
                 width: 350,
+                resize: 'both',
+                overflow: 'auto',
             }
         }
         return style;
@@ -108,8 +110,10 @@ class Window_comp extends Component {
         const {id, closeWindow} = this.props;
 
         return(
-                <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}: {x:this.state.coord.x, y:this.state.coord.y}}  onStart={this.handleDragStart} defaultPosition={{x: this.state.x, y: this.state.y}} onDrag={this.handleDrag}>
-                <Window style = {this.handleStyle()}>
+                <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}: {x:this.state.coord.x, y:this.state.coord.y}} 
+                 onStart={this.handleDragStart} defaultPosition={{x: this.state.x, y: this.state.y}} 
+                 onDrag={this.handleDrag}>
+            <Window style = {this.handleStyle()}>
                     <WindowHeader className="windows-header">
                         {id}
                         <div className='states'>
@@ -133,7 +137,9 @@ class Window_comp extends Component {
                         This z = {this.state.z}
                     </WindowContent>
                 </Window>
-                </Draggable>        
+
+                
+                </Draggable>      
             );
         }
     }
