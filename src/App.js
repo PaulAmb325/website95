@@ -42,7 +42,6 @@ const GlobalStyles = createGlobalStyle`
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.child = React.createRef();
   }
   state = {
     activeWindow : "TEST",

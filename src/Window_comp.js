@@ -13,6 +13,7 @@ import {Resizable} from 're-resizable';
 import './Window_comp.css'
 import { isValidElement } from 'react';
 import ReadMe_Wind from './Window_Content/Readme_Wind';
+import AboutMe_Wind from './Window_Content/AboutMe_Wind';
 
 
 class Window_comp extends Component {
@@ -98,7 +99,8 @@ class Window_comp extends Component {
         //Style classique
             style = {
                 position: 'absolute',
-                width: 350,
+                width: 550,
+                height: 300,
                 resize: 'both',
                 overflow: 'auto',
                 minHeight: '200px',
@@ -110,28 +112,12 @@ class Window_comp extends Component {
         return style;
     }
 
-    renderSwitch(){
-        switch(this.props.id) {
-            case 'TEST':
-              return <ReadMe_Wind></ReadMe_Wind>;
-            default:
-              return <ReadMe_Wind></ReadMe_Wind>;
-        }
-    }
 
     render(){
         //TO DO: Change background of coresponding button according to state
         const {id, closeWindow, name} = this.props;
 
-        const comp = props => {
-            switch(this.props.id) {
-                case 'TEST':
-                  return <ReadMe_Wind></ReadMe_Wind>;
-                default:
-                  return <ReadMe_Wind></ReadMe_Wind>;
-                  
-            }
-        }
+        
 
         return(
                 <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}: {x:this.state.coord.x, y:this.state.coord.y}} 
@@ -156,9 +142,11 @@ class Window_comp extends Component {
                     {(() => {
                             switch(this.props.id) {
                                 case 'ReadMe':
-                                return <ReadMe_Wind></ReadMe_Wind>;
+                                    return <ReadMe_Wind></ReadMe_Wind>;
+                                case 'Me':
+                                    return <AboutMe_Wind></AboutMe_Wind>
                                 default:
-                                return "You broke the website ";
+                                    return "You broke the website ";
                                 
                             }
                         })()}      

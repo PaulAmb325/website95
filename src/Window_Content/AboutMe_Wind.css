@@ -1,0 +1,50 @@
+
+.content {
+    display: flex;
+    -ms-flex-align: center;
+    width: fit-content;
+    margin: auto;
+}
+
+.leftCol{
+    margin-right: 10px;
+}
+
+.panel {
+    padding-top: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.avatar {
+    min-width: 150px;
+    min-height: 150px;
+    margin-right: 10px;
+}
+
+.infos {
+    margin-bottom: 15px;
+}
+
+.hobbies {
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dl_resume {
+    margin-top: 5px;
+}
+
+.hobby1 {
+    flex: 1;
+}
+
+.hobby2 {
+    flex: 1;
+}
+
+.hobby3 {
+    flex: 1;
+}
