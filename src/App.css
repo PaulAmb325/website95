@@ -14,19 +14,32 @@ body {
 }
 
 .task_bar{
-	bottom: 7.8%;
-	right: 0;
+	bottom: 0;
 	width: 100%;
 	left: auto;
 	position: absolute;
-	display: flex;
-	flex-direction: column;
+	
+}
+
+/* Overwrite the position absolute that casse les burnes */
+.gXnjfN{
+	position: relative !important;
+}
+
+.divider{
+	margin-left: 5px !important;
+	margin-right: 5px !important;
+}
+
+.menudivider {
+	position: absolute;
+	right: 110px;
 }
 
 .task_bar .startMenu p{
 	font-weight: 600;
 	font-family: 'ms_sans_serif';
-    src: url('${ms_sans_serif_bold}') format('woff2');
+	src: url('${ms_sans_serif_bold}') format('woff2');
 }
 
 .task_bar p{
@@ -40,6 +53,7 @@ body {
 	right: 0;
 	margin-right: 8px;
 }
+
 
 .wind{
 	position: absolute;

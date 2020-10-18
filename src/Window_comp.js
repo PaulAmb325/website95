@@ -3,7 +3,7 @@ import React, { useState, Component } from 'react';
 import ReactDOM from 'react-dom';
 import Draggable from 'react-draggable';
 
-import { Window, WindowHeader, WindowContent,Tabs, Tab, TabBody, Fieldset, Checkbox, NumberField, Button } from 'react95';
+import { Window, WindowHeader, WindowContent,Tabs, Tab, TabBody, Fieldset, Checkbox, NumberField, Button, Cutout } from 'react95';
 
 //import { Resizable, ResizableBox } from 'react-resizable';
 import {Resizable} from 're-resizable';
@@ -12,6 +12,7 @@ import {Resizable} from 're-resizable';
 
 import './Window_comp.css'
 import { isValidElement } from 'react';
+import ReadMe_Wind from './Window_Content/Readme_Wind';
 
 
 class Window_comp extends Component {
@@ -100,14 +101,37 @@ class Window_comp extends Component {
                 width: 350,
                 resize: 'both',
                 overflow: 'auto',
+                minHeight: '200px',
+                minWidth: '300px',
+                maxHeight: '100vh',
+                maxWidth: '100vw',
             }
         }
         return style;
     }
 
+    renderSwitch(){
+        switch(this.props.id) {
+            case 'TEST':
+              return <ReadMe_Wind></ReadMe_Wind>;
+            default:
+              return <ReadMe_Wind></ReadMe_Wind>;
+        }
+    }
+
     render(){
         //TO DO: Change background of coresponding button according to state
-        const {id, closeWindow} = this.props;
+        const {id, closeWindow, name} = this.props;
+
+        const comp = props => {
+            switch(this.props.id) {
+                case 'TEST':
+                  return <ReadMe_Wind></ReadMe_Wind>;
+                default:
+                  return <ReadMe_Wind></ReadMe_Wind>;
+                  
+            }
+        }
 
         return(
                 <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}: {x:this.state.coord.x, y:this.state.coord.y}} 
@@ -115,7 +139,7 @@ class Window_comp extends Component {
                  onDrag={this.handleDrag}>
             <Window style = {this.handleStyle()}>
                     <WindowHeader className="windows-header">
-                        {id}
+                        {name}
                         <div className='states'>
                             <Button onClick={() => this.changeOpen()} square={true} className='button'>
                             _
@@ -128,13 +152,16 @@ class Window_comp extends Component {
                             </Button>
                         </div>  
                     </WindowHeader>
-                    <WindowContent onClick={() => this.props.setActive(id)}>
-                        Ici on met le contenu que l'on veut en fct de l'id
-                        This id = {id}
-                        <br/>
-                        Coordinate x = {this.state.coord.x} y = {this.state.coord.y}
-                        <br/>
-                        This z = {this.state.z}
+                    <WindowContent onClick={() => this.props.setActive(id)}> 
+                    {(() => {
+                            switch(this.props.id) {
+                                case 'ReadMe':
+                                return <ReadMe_Wind></ReadMe_Wind>;
+                                default:
+                                return "You broke the website ";
+                                
+                            }
+                        })()}      
                     </WindowContent>
                 </Window>
 

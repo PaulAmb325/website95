@@ -12,7 +12,6 @@ import ms_sans_serif_bold from "react95/dist/fonts/ms_sans_serif_bold.woff2";
 
 //Les component Internes
 import Icon from './Icon'
-import Settings from './Settings'
 import Window_comp from'./Window_comp'
 
 
@@ -49,21 +48,21 @@ class App extends React.Component {
     activeWindow : "TEST",
 
     allIcons : [
-      {idIcon: 'test', img : 'notepad_file.ico', name : 'test', idWindow : 'testTxt'},
-      {idIcon: 'testTxt', img : 'gears.ico', name:'Text' , idWindow:'TEST'}
+      {idIcon: 'rm', img : 'notepad_file.ico', name : 'ReadMe', idWindow : 'ReadMe'},
+      {idIcon: 'me', img : 'user.ico', name:'About Me' , idWindow:'Me'}
     ],
     allWindows : [
-      {idWindow: 'testTxt', img : 'notepad_file.ico', name:'Text'},
+      {idWindow: 'ReadMe', img : 'notepad_file.ico', name:'ReadMe'},
       {idWindow: 'setting', img: 'gears.ico', name:'Settings'},
-      {idWindow: 'TEST', img: 'gears.ico', name:'TEST'}
+      {idWindow: 'Me', img: 'user.ico', name:'About Me'}
     ],
     windowsOpen : [
-      {idWindow: 'testTxt', img : 'notepad_file.ico', name:'Text', changeIndex: 0},
-      {idWindow: 'TEST', img: 'gears.ico', name:'TEST', changeIndex: 0}
+      {idWindow: 'ReadMe', img : 'notepad_file.ico', name:'ReadMe', changeIndex: 0},
+      {idWindow: 'Me', img: 'user.ico', name:'About Me', changeIndex: 0}
     ],
     windowsOpenRender : [
-      {idWindow: 'testTxt', img : 'notepad_file.ico', name:'Text', changeIndex: 0},
-      {idWindow: 'TEST', img: 'gears.ico', name:'TEST', changeIndex: 0}
+      {idWindow: 'ReadMe', img : 'notepad_file.ico', name:'ReadMe', changeIndex: 0},
+      {idWindow: 'Me', img: 'user.ico', name:'About Me', changeIndex: 0}
     ]
 
   }
@@ -248,7 +247,7 @@ class App extends React.Component {
               <Icon openWindow={this.openWindow} idWindow={item.idWindow} image={item.img} name={item.name} x={50 * this.getIconPosById(item.idIcon)} y={0}></Icon>
             ))}
             {this.state.windowsOpenRender.map(item => (
-              <Window_comp key={item.idWindow} id={item.idWindow} closeWindow={this.closeWindow} setActive={this.setActive} x={15 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)} changeIndex={item.changeIndex}></Window_comp>
+              <Window_comp key={item.idWindow} id={item.idWindow} closeWindow={this.closeWindow} setActive={this.setActive} x={15 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)} changeIndex={item.changeIndex} name={item.name}></Window_comp>
             ))}
           </div>
         <div className = "task_bar">
@@ -259,6 +258,7 @@ class App extends React.Component {
                   <img src='windows-0.png' alt='logo' style={{ height: '20px', marginRight: 4 }}/>
                     <p >Start</p>
                 </Button>
+                
                 {/* { {openStart && (
                 <List style={{position: 'absolute', left: '0', bottom: '100%'}} onClick={() => setOpenStart(false)}>
                   <ListItem>
@@ -283,6 +283,7 @@ class App extends React.Component {
                 </List>
                 )} } */}
               </div>
+              <Divider orientation="vertical" size="35px" className='divider'/>
               <div>
               {this.state.windowsOpen.map(item => (
               <Button onClick={() => this.unminimizeWindow(item.idWindow)}  active={item.idWindow == this.state.activeWindow ? true : false}>
@@ -291,9 +292,16 @@ class App extends React.Component {
               </Button>
               ))}
               </div>
+              <Divider orientation="vertical" size="35px" className='divider menudivider'/>
             <div className='menu'>
-              <Button square={true} onClick={() => this.openWindow('setting')}>
-                <img src='gears.ico' alt='settings' style={{ height: '20px'}} />
+            <Button square={true} onClick={() => window.open("https://www.linkedin.com/in/paul-amblard-059a0915a/", "_blank")}>
+                <img src='LinkedIn-Logo.png' alt='settings' style={{ height: '20px'}} />
+              </Button>
+              <Button square={true} onClick={() => window.open("https://github.com/PaulAmb325", "_blank")}>
+                <img src='github-Logo.png' alt='settings' style={{ height: '20px'}} />
+              </Button>
+              <Button square={true} onClick={() => window.open("https://github.com/PaulAmb325", "_blank")}>
+                <img src='Twitter-Logo.png' alt='settings' style={{ height: '20px'}} />
               </Button>
             </div>
             </Toolbar>
