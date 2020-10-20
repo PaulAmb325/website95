@@ -245,7 +245,7 @@ class App extends React.Component {
         <ThemeProvider theme={original}>
           <div className = "desktop">
             {this.state.allIcons.map(item => (
-              <Icon openWindow={this.openWindow} idWindow={item.idWindow} image={item.img} name={item.name} x={50 * this.getIconPosById(item.idIcon)} y={0}></Icon>
+              <Icon openWindow={this.openWindow} idWindow={item.idWindow} image={item.img} name={item.name} x={80 * this.getIconPosById(item.idIcon)} y={0}></Icon>
             ))}
             {this.state.windowsOpenRender.map(item => (
               <Window_comp key={item.idWindow} id={item.idWindow} closeWindow={this.closeWindow} setActive={this.setActive} x={15 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)} changeIndex={item.changeIndex} name={item.name}></Window_comp>
