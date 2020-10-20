@@ -38,13 +38,13 @@
 }
 
 .hobby1 {
-    flex: 1;
+    flex: 1 1;
 }
 
 .hobby2 {
-    flex: 1;
+    flex: 1 1;
 }
 
 .hobby3 {
-    flex: 1;
+    flex: 1 1;
 }

@@ -5,15 +5,11 @@ import Draggable from 'react-draggable';
 
 import { Window, WindowHeader, WindowContent,Tabs, Tab, TabBody, Fieldset, Checkbox, NumberField, Button, Cutout } from 'react95';
 
-//import { Resizable, ResizableBox } from 'react-resizable';
-import {Resizable} from 're-resizable';
-
-
-
 import './Window_comp.css'
-import { isValidElement } from 'react';
+
 import ReadMe_Wind from './Window_Content/Readme_Wind';
 import AboutMe_Wind from './Window_Content/AboutMe_Wind';
+import Projects_Wind from './Window_Content/Projects_Wind';
 
 
 class Window_comp extends Component {
@@ -101,8 +97,8 @@ class Window_comp extends Component {
                 position: 'absolute',
                 width: 550,
                 height: 300,
-                resize: 'both',
                 overflow: 'auto',
+                resize: 'both',
                 minHeight: '200px',
                 minWidth: '300px',
                 maxHeight: '100vh',
@@ -138,13 +134,15 @@ class Window_comp extends Component {
                             </Button>
                         </div>  
                     </WindowHeader>
-                    <WindowContent onClick={() => this.props.setActive(id)}> 
+                    <WindowContent className='winContent' onClick={() => this.props.setActive(id)}> 
                     {(() => {
                             switch(this.props.id) {
                                 case 'ReadMe':
                                     return <ReadMe_Wind></ReadMe_Wind>;
                                 case 'Me':
                                     return <AboutMe_Wind></AboutMe_Wind>
+                                case 'projs':
+                                    return <Projects_Wind></Projects_Wind>
                                 default:
                                     return "You broke the website ";
                                 

@@ -48,12 +48,14 @@ class App extends React.Component {
 
     allIcons : [
       {idIcon: 'rm', img : 'notepad_file.ico', name : 'ReadMe', idWindow : 'ReadMe'},
-      {idIcon: 'me', img : 'user.ico', name:'About Me' , idWindow:'Me'}
+      {idIcon: 'me', img : 'user.ico', name:'About Me' , idWindow:'Me'},
+      {idIcon: 'projs', img : 'projects.ico', name:'Projects' , idWindow:'projs'}
     ],
     allWindows : [
       {idWindow: 'ReadMe', img : 'notepad_file.ico', name:'ReadMe'},
       {idWindow: 'setting', img: 'gears.ico', name:'Settings'},
-      {idWindow: 'Me', img: 'user.ico', name:'About Me'}
+      {idWindow: 'Me', img: 'user.ico', name:'About Me'},
+      {idWindow: 'projs', img: 'projects.ico', name:'Projects'}
     ],
     windowsOpen : [
       {idWindow: 'ReadMe', img : 'notepad_file.ico', name:'ReadMe', changeIndex: 0},
