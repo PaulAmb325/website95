@@ -9,14 +9,29 @@ import './Projects_Wind.css'
 
 function Projects_Wind() {
 
+    function searchConform(elem){
+        if (elem.name.toUpperCase().includes(search.searchValue.toUpperCase())){
+            console.log(elem)
+            return true
+        }
+        elem.tags.map(tag => {
+            console.log(tag)
+            if(tag.toUpperCase().includes(search.searchValue.toUpperCase())){
+                console.log("conform")
+                console.log(elem)
+                return true
+            }
+        });
+    }
+
     function renderProjects(){
         if (search.searchValue == ''){
             return (    
                 <div>
                         {projects.projects.map(item => (
                             <div className="pr_Proj">
-                                <Avatar className="avatar" size={150} src={item.img}/>
-                                <Fieldset label={item.name}>
+                                <Avatar key={item.img} className="avatar" size={150} src={item.img}/>
+                                <Fieldset key={item.name} label={item.name}>
                                     <p>{item.description}</p>
                                     <br />
                                     <p className="pr_tags">
@@ -31,16 +46,31 @@ function Projects_Wind() {
             );
         }
         else{
+            var res = projects.projects.filter(searchConform)
             return(
-                <div>{search.searchValue}</div>
-
+                <div>
+                        {res.map(item => (
+                            <div className="pr_Proj">
+                                <Avatar key={item.img} className="avatar" size={150} src={item.img}/>
+                                <Fieldset key={item.name} label={item.name}>
+                                    <p>{item.description}</p>
+                                    <br />
+                                    <p className="pr_tags">
+                                    {item.tags.map(tag => (
+                                        "  #" + tag 
+                                    ))}
+                                    </p>
+                                </Fieldset>
+                            </div>
+                        ))}
+                </div> 
             );
         }
         
     };
 
     const [search, setSearch] = useState({
-        searchValue: 'OUI'
+        searchValue: ''
       });
 
     const [projects, setProject] = useState({
@@ -59,12 +89,13 @@ function Projects_Wind() {
     })
 
     const handleChange = e => {
-        setSearch({ searchValue: e.target.searchV });
-    }
+        setSearch({ searchValue: e.target.value })
+    };
+    
 
     return (
         <div>
-        <TextField searchV={search.searchValue} placeholder='Search' onChange={handleChange}/>
+        <TextField searchValue={search.searchValue} placeholder='Search' onChange={handleChange}/>
             {renderProjects()}
         </div>
   
