@@ -1,0 +1,14 @@
+text{
+    font-family: 'ms_sans_serif' !important;
+    src: url('${ms_sans_serif}') format('woff2');
+    font-size: 0.85rem !important;
+}
+
+.sk_skill{
+    cursor: pointer;
+    
+}
+
+text:hover{
+    font-weight: 800;
+}

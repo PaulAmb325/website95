@@ -1,5 +1,5 @@
 import React ,{useEffect, useState } from 'react';
-import {ResponsiveRadar} from '@nivo/radar'
+import {ResponsiveRadar, Radar} from '@nivo/radar'
  
 import './Skills_Wind.css'
 
@@ -8,11 +8,22 @@ import {Tooltip, Button, Tab, Tabs, TabBody, Fieldset, NumberField, Checkbox} fr
 
 function Skills_Wind() {
 
+    function test(id){
+      console.log("clicked")
+      console.log(id)
+    }
+
     const [tab, setTab] = useState({
         activeTab: 0
       });
     
     const handleChange = (e, value) => setTab({ activeTab: value });
+
+    const LabelComponent = ({ id, anchor }) => (
+      <g className="sk_skill" onClick={() => test(id)} transform={`translate(${anchor === 'end' ? -30 : anchor === 'middle' ? -30 : 0}, 0)`}>
+          <text>{id}</text>
+      </g>
+  )
 
     return (
         <div>
@@ -27,7 +38,7 @@ function Skills_Wind() {
         </Tabs>
         <TabBody>
           {tab.activeTab === 0 && (
-            <div style={{ height: 300 }}>
+            <div style={{ height: '60vh' }}>
               <ResponsiveRadar
               className='sk_Graphs'
               data= {[
@@ -55,13 +66,13 @@ function Skills_Wind() {
               keys={[ 'value']}
               indexBy="skill"
               maxValue="auto"
-              margin={{ top: 20, right: 45, bottom: 20, left: 45 }}
+              margin={{ top: 25, right: 45, bottom: 20, left: 45 }}
               curve="linearClosed"
               borderWidth={2}
               borderColor={{ from: 'color' }}
               gridLevels={10}
               gridShape="linear"
-              gridLabelOffset={16}
+              gridLabelOffset={10}
               enableDots={true}
               dotSize={10}
               dotColor={{ theme: 'background' }}
@@ -70,30 +81,178 @@ function Skills_Wind() {
               enableDotLabel={true}
               dotLabel="value"
               dotLabelYOffset={-12}
-              colors={{ scheme: 'nivo' }}
-              fillOpacity={0.25}
+              colors={{ scheme: 'set2' }}
+              fillOpacity={0.75}
               blendMode="multiply"
               animate={true}
               motionConfig="wobbly"
-              isInteractive={true}
-              legends={[]}
+              isInteractive={false}
+              gridLabel={LabelComponent}
+              /* legends={[]} */
           />
                   </div>
                 )}
                 {tab.activeTab === 1 && (
-                  <div>
-                    <div>IoT stuff here</div>
-                  </div>
+                   <div style={{ height: '60vh' }}>
+                   <ResponsiveRadar
+                   className='sk_Graphs'
+                   data= {[
+                     {
+                       "skill": "JavaScript",
+                       "value": 7,
+                     },
+                     {
+                       "skill": "bitter",
+                       "value": 4,
+                     },
+                     {
+                       "skill": "heavy",
+                       "value": 5,
+                     },
+                     {
+                       "skill": "strong",
+                       "value": 4,
+                     },
+                     {
+                       "skill": "sunny",
+                       "value": 10,
+                     }
+                   ]}
+                   keys={[ 'value']}
+                   indexBy="skill"
+                   maxValue="auto"
+                   margin={{ top: 20, right: 45, bottom: 20, left: 45 }}
+                   curve="linearClosed"
+                   borderWidth={2}
+                   borderColor={{ from: 'color' }}
+                   gridLevels={10}
+                   gridShape="linear"
+                   gridLabelOffset={10}
+                   enableDots={true}
+                   dotSize={10}
+                   dotColor={{ theme: 'background' }}
+                   dotBorderWidth={2}
+                   dotBorderColor={{ from: 'color' }}
+                   enableDotLabel={true}
+                   dotLabel="value"
+                   dotLabelYOffset={-12}
+                   colors={{ scheme: 'set2' }}
+                   fillOpacity={0.75}
+                   blendMode="multiply"
+                   animate={true}
+                   motionConfig="wobbly"
+                   isInteractive={false}
+                   /* legends={[]} */
+               />
+                       </div>
                 )}
                 {tab.activeTab === 2 && (
-                  <div>
-                    <div>Data Science stuff here</div>
-                  </div>
+                   <div style={{ height: '60vh' }}>
+                   <ResponsiveRadar
+                   className='sk_Graphs'
+                   data= {[
+                     {
+                       "skill": "JavaScript",
+                       "value": 7,
+                     },
+                     {
+                       "skill": "bitter",
+                       "value": 4,
+                     },
+                     {
+                       "skill": "heavy",
+                       "value": 5,
+                     },
+                     {
+                       "skill": "strong",
+                       "value": 4,
+                     },
+                     {
+                       "skill": "sunny",
+                       "value": 10,
+                     }
+                   ]}
+                   keys={[ 'value']}
+                   indexBy="skill"
+                   maxValue="auto"
+                   margin={{ top: 20, right: 45, bottom: 20, left: 45 }}
+                   curve="linearClosed"
+                   borderWidth={2}
+                   borderColor={{ from: 'color' }}
+                   gridLevels={10}
+                   gridShape="linear"
+                   gridLabelOffset={10}
+                   enableDots={true}
+                   dotSize={10}
+                   dotColor={{ theme: 'background' }}
+                   dotBorderWidth={2}
+                   dotBorderColor={{ from: 'color' }}
+                   enableDotLabel={true}
+                   dotLabel="value"
+                   dotLabelYOffset={-12}
+                   colors={{ scheme: 'set2' }}
+                   fillOpacity={0.75}
+                   blendMode="multiply"
+                   animate={true}
+                   motionConfig="wobbly"
+                   isInteractive={false}
+                   /* legends={[]} */
+               />
+                       </div>
                 )}
                 {tab.activeTab === 3 && (
-                  <div>
-                    <div>Soft stuff here</div>
-                  </div>
+                   <div style={{ height: '60vh' }}>
+                   <ResponsiveRadar
+                   className='sk_Graphs'
+                   data= {[
+                     {
+                       "skill": "JavaScript",
+                       "value": 7,
+                     },
+                     {
+                       "skill": "bitter",
+                       "value": 4,
+                     },
+                     {
+                       "skill": "heavy",
+                       "value": 5,
+                     },
+                     {
+                       "skill": "strong",
+                       "value": 4,
+                     },
+                     {
+                       "skill": "sunny",
+                       "value": 10,
+                     }
+                   ]}
+                   keys={[ 'value']}
+                   indexBy="skill"
+                   maxValue="auto"
+                   margin={{ top: 20, right: 45, bottom: 20, left: 45 }}
+                   curve="linearClosed"
+                   borderWidth={2}
+                   borderColor={{ from: 'color' }}
+                   gridLevels={10}
+                   gridShape="linear"
+                   gridLabelOffset={10}
+                   enableDots={true}
+                   dotSize={10}
+                   dotColor={{ theme: 'background' }}
+                   dotBorderWidth={2}
+                   dotBorderColor={{ from: 'color' }}
+                   enableDotLabel={true}
+                   dotLabel="value"
+                   dotLabelYOffset={-12}
+                   colors={{ scheme: 'set2' }}
+                   fillOpacity={0.75}
+                   blendMode="multiply"
+                   animate={true}
+                   motionConfig="wobbly"
+                   isInteractive={false}
+                   /* legends={[]} */
+               />
+                       </div>
                 )}
         </TabBody>
             
