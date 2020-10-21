@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@nivo/radar": "^0.63.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -13,7 +14,7 @@
     "react-draggable": "^4.4.3",
     "react-resizable": "^1.11.0",
     "react-rnd": "^10.2.2",
-    "react-scripts": "3.4.3",
+    "react-scripts": "^3.4.4",
     "react95": "^3.0.1",
     "styled-components": "^5.1.1"
   },

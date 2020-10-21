@@ -69,59 +69,6 @@ class App extends React.Component {
     ]
 
   }
-  //Trouver un moyen de ne plus afficher les windows minimized (display none maybe)
-  /* minimizeWindow = (id) =>{
-    var exist = false;
-    var already = false;
-    var elem;
-    //Check if id is opened
-    if(this.state.windowsOpen.length > 0){
-      for (var key in this.state.windowsOpen){
-        if(this.state.windowsOpen[key].idWindow == id){
-          exist = true;
-          elem = this.state.windowsOpen[key];
-        }
-      }
-    }
-    //Check if id is already minimized
-    if(this.state.windowsMinimized.length > 0){
-      for (var key in this.state.windowsMinimized){
-        if(this.state.windowsMinimized[key].idWindow == id){
-          already = true;
-        }
-      }
-    }
-    //Add to windowsMinimized
-    if(!already && exist){
-      //Correct way to update le state a remplacer le sale sale
-      this.setState({windowsMinimized: [...this.state.windowsMinimized, elem]});
-      console.log('jupdate le state ', this.state.windowsMinimized);
-    }
-    console.log('je print le state ', this.state.windowsMinimized);
-  } */
-
-/*   unminimizeWindow(id){
-      var pos = this.state.windowsMinimized.map(function(e) { return e.idWindow; }).indexOf(id);
-      if(pos != -1){
-        console.log('a')
-        this.state.windowsMinimized.splice(pos,1)
-      }
-    console.log('unminim',this.state);
-    
-  } */
-
-  
-    
-/*   //Change state of the window
-  changeOpen = id =>{
-    console.log(this.state)
-    var win = this.state.windowsOpen;
-    var pos = this.state.windowsOpen.map(function(e) { return e.idWindow; }).indexOf(id);
-    win[pos].open = !win[pos].open;
-    this.setState({windowsOpen:win})
-  } */
-
-
 
   array_move(arr, old_index, new_index) {
     while (old_index < 0) {
