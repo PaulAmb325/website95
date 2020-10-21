@@ -49,13 +49,15 @@ class App extends React.Component {
     allIcons : [
       {idIcon: 'rm', img : 'notepad_file.ico', name : 'ReadMe', idWindow : 'ReadMe'},
       {idIcon: 'me', img : 'user.ico', name:'About Me' , idWindow:'Me'},
-      {idIcon: 'projs', img : 'projects.ico', name:'Projects' , idWindow:'projs'}
+      {idIcon: 'projs', img : 'projects.ico', name:'Projects' , idWindow:'projs'},
+      {idIcon: 'skills', img : 'projects.ico', name:'Skills' , idWindow:'skills'}
     ],
     allWindows : [
       {idWindow: 'ReadMe', img : 'notepad_file.ico', name:'ReadMe'},
       {idWindow: 'setting', img: 'gears.ico', name:'Settings'},
       {idWindow: 'Me', img: 'user.ico', name:'About Me'},
-      {idWindow: 'projs', img: 'projects.ico', name:'Projects'}
+      {idWindow: 'projs', img: 'projects.ico', name:'Projects'},
+      {idWindow: 'skills', img: 'projects.ico', name:'Skills'}
     ],
     windowsOpen : [
       {idWindow: 'ReadMe', img : 'notepad_file.ico', name:'ReadMe', changeIndex: 0},
@@ -175,6 +177,7 @@ class App extends React.Component {
     wOpe[wPos].changeIndex = wOpe[wPos].changeIndex + 1;
     this.setState({windowsOpen: wOpe});
     this.setState({windowsOpenRender: wRen});
+    this.setActive(id);
   }
 
   openWindow = id =>{

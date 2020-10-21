@@ -1,4 +1,4 @@
-import React, { useState }from 'react';
+import React, { Component, useEffect, useState }from 'react';
 import {Avatar, Button, Cutout, Fieldset, Panel, TextField } from 'react95';
 
 import './Projects_Wind.css'
@@ -7,21 +7,20 @@ import './Projects_Wind.css'
 
 
 
-function Projects_Wind() {
+function Projects_Wind(props) {
 
     function searchConform(elem){
-        if (elem.name.toUpperCase().includes(search.searchValue.toUpperCase())){
-            console.log(elem)
-            return true
+        if (elem.name.toUpperCase().includes(search.searchValue.toUpperCase()) || elem.tags.find(tag => tag.toUpperCase().includes(search.searchValue.toUpperCase()))){
+            return true;
         }
-        elem.tags.map(tag => {
+        /* elem.tags.map(tag => {
             console.log(tag)
             if(tag.toUpperCase().includes(search.searchValue.toUpperCase())){
                 console.log("conform")
                 console.log(elem)
-                return true
+                return true;
             }
-        });
+        }); */
     }
 
     function renderProjects(){
@@ -91,7 +90,16 @@ function Projects_Wind() {
     const handleChange = e => {
         setSearch({ searchValue: e.target.value })
     };
+
+    const forceSearch = (search) =>{
+        setSearch({ searchValue: searchConform})
+    }
     
+    useEffect (() => {
+        if(props.defaultSearch){
+            forceSearch(props.defaultSearch)
+        }
+    });
 
     return (
         <div>

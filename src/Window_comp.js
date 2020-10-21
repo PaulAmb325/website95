@@ -10,6 +10,7 @@ import './Window_comp.css'
 import ReadMe_Wind from './Window_Content/Readme_Wind';
 import AboutMe_Wind from './Window_Content/AboutMe_Wind';
 import Projects_Wind from './Window_Content/Projects_Wind';
+import Skills_Wind from './Window_Content/Skills_Wind';
 
 
 class Window_comp extends Component {
@@ -140,9 +141,11 @@ class Window_comp extends Component {
                                 case 'ReadMe':
                                     return <ReadMe_Wind></ReadMe_Wind>;
                                 case 'Me':
-                                    return <AboutMe_Wind></AboutMe_Wind>
+                                    return <AboutMe_Wind></AboutMe_Wind>;
                                 case 'projs':
-                                    return <Projects_Wind></Projects_Wind>
+                                    return <Projects_Wind></Projects_Wind>;
+                                case 'skills':
+                                    return <Skills_Wind></Skills_Wind>;
                                 default:
                                     return "You broke the website ";
                                 
