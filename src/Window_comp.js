@@ -24,7 +24,8 @@ class Window_comp extends Component {
                 x : this.props.x,
                 y : this.props.y,
             },
-            z : this.props.z
+            z : this.props.z,
+            tag :''
         };
     }
 
@@ -72,6 +73,11 @@ class Window_comp extends Component {
         });
         //this.props.setActive(this.props.id);
       };
+
+    startProjSearch = (tagS) => {
+        this.props.openWindow('projs');
+        this.setState({tag:tagS});
+    }
 
     handleStyle() {
         //Based on the state return the correct style
@@ -143,9 +149,9 @@ class Window_comp extends Component {
                                 case 'Me':
                                     return <AboutMe_Wind></AboutMe_Wind>;
                                 case 'projs':
-                                    return <Projects_Wind></Projects_Wind>;
+                                    return <Projects_Wind defaultSearch={this.state.tag}></Projects_Wind>;
                                 case 'skills':
-                                    return <Skills_Wind></Skills_Wind>;
+                                    return <Skills_Wind startProjSearch={this.startProjSearch}></Skills_Wind>;
                                 default:
                                     return "You broke the website ";
                                 

@@ -91,12 +91,12 @@ function Projects_Wind(props) {
         setSearch({ searchValue: e.target.value })
     };
 
-    const forceSearch = (search) =>{
+    const forceSearch = () =>{
         setSearch({ searchValue: searchConform})
     }
     
     useEffect (() => {
-        if(props.defaultSearch){
+        if(props.defaultSearch && props.defaultSearch!==''){
             forceSearch(props.defaultSearch)
         }
     });

@@ -146,13 +146,49 @@ class App extends React.Component {
           elem=this.state.allWindows[key];
           elem.changeIndex = 0;
           //elem.z = this.getMaxZ() + 1;
-          this.setState({windowsOpen: [...this.state.windowsOpen, elem]});
-          this.setState({windowsOpenRender: [...this.state.windowsOpenRender, elem]});
-          this.setState({activeWindow: elem.idWindow})
+          
+          this.setState({windowsOpen: [...this.state.windowsOpen, elem]},  function(){
+            this.setState({windowsOpenRender: [...this.state.windowsOpenRender, elem]},  function(){
+              console.log('rend' , this.state.windowsOpenRender)
+            });
+            this.setState({activeWindow: elem.idWindow},  function(){
+              console.log('act' , this.state.activeWindows)
+              console.log('act' , elem)
+            });
+          });
+         
+          
         }
       }
     }
   }
+
+  /* openProj = () =>{
+    var elem;
+    for (var key in this.state.allWindows){
+      if(this.state.allWindows[key].idWindow == 'projs'){
+        elem = this.state.allWindows[key];
+      }
+    }
+    const winOpRen = this.state.windowsOpenRender.filter(item => item.idWindow !== CloseId); 
+    const winOp = this.state.windowsOpen.filter(item => item.idWindow !== CloseId);
+
+    this.setState({windowsOpenRender: winOpRen}, function (){
+      this.setState({windowsOpen: winOp}, function(){
+        this.setState({windowsOpen: [...this.state.windowsOpen, elem]},  function(){
+          console.log('op' , this.state.windowsOpen)
+        });
+        this.setState({windowsOpenRender: [...this.state.windowsOpenRender, elem]},  function(){
+          console.log('rend' , this.state.windowsOpenRender)
+        });
+        this.setState({activeWindow: elem.idWindow},  function(){
+          console.log('act' , this.state.activeWindows)
+          console.log('act' , elem)
+        });
+      });
+    });
+    
+  } */
 
 
   closeWindow = CloseId =>{
@@ -160,11 +196,8 @@ class App extends React.Component {
     const winOp = this.state.windowsOpen.filter(item => item.idWindow !== CloseId);
 
     this.setState({windowsOpenRender: winOpRen}, function (){
-      console.log(winOpRen)
-      console.log(this.state.windowsOpenRender)
     });
     this.setState({windowsOpen: winOp}, function(){
-      console.log(this.state.windowsOpen)
     });
     
     
@@ -198,7 +231,7 @@ class App extends React.Component {
               <Icon openWindow={this.openWindow} idWindow={item.idWindow} image={item.img} name={item.name} x={80 * this.getIconPosById(item.idIcon)} y={0}></Icon>
             ))}
             {this.state.windowsOpenRender.map(item => (
-              <Window_comp key={item.idWindow} id={item.idWindow} closeWindow={this.closeWindow} setActive={this.setActive} x={15 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)} changeIndex={item.changeIndex} name={item.name}></Window_comp>
+              <Window_comp key={item.idWindow} id={item.idWindow} closeWindow={this.closeWindow} openWindow={this.openWindow} setActive={this.setActive} x={15 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)} changeIndex={item.changeIndex} name={item.name}></Window_comp>
             ))}
           </div>
         <div className = "task_bar">

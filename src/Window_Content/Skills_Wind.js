@@ -6,9 +6,12 @@ import './Skills_Wind.css'
 
 import {Tooltip, Button, Tab, Tabs, TabBody, Fieldset, NumberField, Checkbox} from 'react95';
 
-function Skills_Wind() {
+function Skills_Wind(props) {
+
+   
 
     function test(id){
+      console.log(props)
       console.log("clicked")
       console.log(id)
     }
@@ -20,11 +23,11 @@ function Skills_Wind() {
     const handleChange = (e, value) => setTab({ activeTab: value });
 
     const LabelComponent = ({ id, anchor }) => (
-      <g className="sk_skill" onClick={() => test(id)} transform={`translate(${anchor === 'end' ? -30 : anchor === 'middle' ? -30 : 0}, 0)`}>
+      <g className="sk_skill" onClick={() => props.startProjSearch(id)} transform={`translate(${anchor === 'end' ? -30 : anchor === 'middle' ? -30 : 0}, 0)`}>
           <text>{id}</text>
       </g>
   )
-
+    
     return (
         <div>
             <Tooltip style={{position : 'float'}} text='I see you! 🤷‍' enterDelay={100} leaveDelay={500}>
