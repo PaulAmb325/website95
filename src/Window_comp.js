@@ -75,8 +75,11 @@ class Window_comp extends Component {
       };
 
     startProjSearch = (tagS) => {
-        this.props.openWindow('projs');
-        this.setState({tag:tagS});
+        this.setState({tag:tagS}, function (){
+            //console.log('src', this.state.tag)
+            this.props.openWindow('projs');
+        } );
+        //console.log('src', this.state.tag)
     }
 
     handleStyle() {
@@ -116,11 +119,28 @@ class Window_comp extends Component {
     }
 
 
+
+
+
     render(){
         //TO DO: Change background of coresponding button according to state
         const {id, closeWindow, name} = this.props;
 
-        
+        const renderComp = () =>{
+            //console.log("je render", this.state.tag)
+            switch(this.props.id) {
+                case 'ReadMe':
+                    return <ReadMe_Wind></ReadMe_Wind>;
+                case 'Me':
+                    return <AboutMe_Wind></AboutMe_Wind>;
+                case 'projs':
+                    return <Projects_Wind defaultSearch={this.state.tag}></Projects_Wind>;
+                case 'skills':
+                    return <Skills_Wind startProjSearch={this.startProjSearch}></Skills_Wind>;
+                default:
+                    return "You broke the website ";
+            }
+        }
 
         return(
                 <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}: {x:this.state.coord.x, y:this.state.coord.y}} 
@@ -142,21 +162,7 @@ class Window_comp extends Component {
                         </div>  
                     </WindowHeader>
                     <WindowContent className='winContent' onClick={() => this.props.setActive(id)}> 
-                    {(() => {
-                            switch(this.props.id) {
-                                case 'ReadMe':
-                                    return <ReadMe_Wind></ReadMe_Wind>;
-                                case 'Me':
-                                    return <AboutMe_Wind></AboutMe_Wind>;
-                                case 'projs':
-                                    return <Projects_Wind defaultSearch={this.state.tag}></Projects_Wind>;
-                                case 'skills':
-                                    return <Skills_Wind startProjSearch={this.startProjSearch}></Skills_Wind>;
-                                default:
-                                    return "You broke the website ";
-                                
-                            }
-                        })()}      
+                    {renderComp()}
                     </WindowContent>
                 </Window>
 

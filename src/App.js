@@ -119,7 +119,7 @@ class App extends React.Component {
     var wOpe = this.state.windowsOpen;
     var wPos = this.getWindPosById(id);
     var wRPos = this.getWindRendPosByID(id);
-    console.log(wRen[wRPos]);
+    //console.log(wRen[wRPos]);
     wRen[wRPos].changeIndex = wRen[wRPos].changeIndex + 1;
     wOpe[wPos].changeIndex = wOpe[wPos].changeIndex + 1;
     this.setState({windowsOpen: wOpe});
@@ -129,7 +129,7 @@ class App extends React.Component {
 
   openWindow = id =>{
     //TO DO: Handle the creation of z index;
-    console.log('OUI  :  ', id)
+    //console.log('OUI  :  ', id)
     //console.log(this.state)
     var exist = false;
     var elem;
@@ -149,11 +149,11 @@ class App extends React.Component {
           
           this.setState({windowsOpen: [...this.state.windowsOpen, elem]},  function(){
             this.setState({windowsOpenRender: [...this.state.windowsOpenRender, elem]},  function(){
-              console.log('rend' , this.state.windowsOpenRender)
+              //console.log('rend' , this.state.windowsOpenRender)
             });
             this.setState({activeWindow: elem.idWindow},  function(){
-              console.log('act' , this.state.activeWindows)
-              console.log('act' , elem)
+              //console.log('act' , this.state.activeWindows)
+              //console.log('act' , elem)
             });
           });
          

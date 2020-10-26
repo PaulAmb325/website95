@@ -23,14 +23,14 @@ function Projects_Wind(props) {
         }); */
     }
 
-    function renderProjects(){
+    const renderProjects = () => {
         if (search.searchValue == ''){
             return (    
                 <div>
                         {projects.projects.map(item => (
-                            <div className="pr_Proj">
+                            <div key={item.name} className="pr_Proj">
                                 <Avatar key={item.img} className="avatar" size={150} src={item.img}/>
-                                <Fieldset key={item.name} label={item.name}>
+                                <Fieldset label={item.name}>
                                     <p>{item.description}</p>
                                     <br />
                                     <p className="pr_tags">
@@ -90,14 +90,12 @@ function Projects_Wind(props) {
     const handleChange = e => {
         setSearch({ searchValue: e.target.value })
     };
-
-    const forceSearch = () =>{
-        setSearch({ searchValue: searchConform})
-    }
     
     useEffect (() => {
-        if(props.defaultSearch && props.defaultSearch!==''){
-            forceSearch(props.defaultSearch)
+        console.log('useEffect', props)
+        if(props.defaultSearch && props.defaultSearch!=='' && props.defaultSearch !== search.searchValue){
+            console.log(props.defaultSearch)
+            setSearch({ searchValue: props.defaultSearch})
         }
     });
 
