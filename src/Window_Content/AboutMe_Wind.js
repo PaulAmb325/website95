@@ -2,13 +2,16 @@ import React from 'react';
 import {Avatar, Button, Cutout, Fieldset, Panel } from 'react95';
 
 import './AboutMe_Wind.css'
+import CV from '../Files/cv.pdf'
  
 function AboutMe_Wind() {
   return (
         <div className="content">
             <div className="leftCol">
                 <Avatar className="avatar" size={150} src={'./someHandsomeGuy.jpg'}/>
-                <Button className="dl_resume" size="lg">Download my resume</Button>
+                
+                <Button onClick={() => window.open('../Files/feo.pdf')} className="dl_resume" size="lg" >Download my resume</Button>
+                
             </div>
             <div className="righCol">
                 
