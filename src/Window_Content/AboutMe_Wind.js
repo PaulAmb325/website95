@@ -2,7 +2,6 @@ import React from 'react';
 import {Avatar, Button, Cutout, Fieldset, Panel } from 'react95';
 
 import './AboutMe_Wind.css'
-import CV from '../Files/cv.pdf'
  
 function AboutMe_Wind() {
   return (
@@ -10,8 +9,8 @@ function AboutMe_Wind() {
             <div className="leftCol">
                 <Avatar className="avatar" size={150} src={'./someHandsomeGuy.jpg'}/>
                 
-                <Button onClick={() => window.open('../Files/feo.pdf')} className="dl_resume" size="lg" >Download my resume</Button>
-                
+                <Button onClick={()=> window.open(process.env.PUBLIC_URL+'cv.pdf')} className="dl_resume" size="lg" >Download my resume</Button>
+            
             </div>
             <div className="righCol">
                 
