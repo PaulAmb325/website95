@@ -1,0 +1,38 @@
+.cw_Proj_concept{
+    margin-bottom: 15px;
+}
+
+.cw_Proj_features{
+    margin-bottom: 15px;
+}
+
+.cw_web{
+    display: flex;
+    flex-direction: column;
+}
+
+.cw_web_desktop{
+    display: flex;
+}
+
+.cw_web_dskt_img{
+    flex: 1;
+    width: 50%;
+}
+
+.cw_web_dskt_text{
+    flex: 1 1 auto;
+    
+}
+
+.cw_web_smartphone{
+    display: flex;
+}
+
+.cw_web_smrt_text{
+    flex: 1 1 auto;
+}
+
+.cw_web_smrt_img{
+    flex: 1 1 auto;
+}

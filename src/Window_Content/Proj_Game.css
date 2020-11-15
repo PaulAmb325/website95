@@ -1,0 +1,22 @@
+.game_content{
+    display: flex;
+    flex-direction: column;
+}
+
+.game_info{
+    margin-top: 10px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.game_gif{
+    flex: 1 1;
+}
+
+.game_concept{
+    flex: 1 1;
+}
+
+.game_features{
+    margin-bottom: 10px;
+}
