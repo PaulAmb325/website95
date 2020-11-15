@@ -30,9 +30,6 @@ function Skills_Wind(props) {
     
     return (
         <div>
-            <Tooltip style={{position : 'float'}} text='I see you! 🤷‍' enterDelay={100} leaveDelay={500}>
-                <Button square>?</Button>
-            </Tooltip>
         <Tabs value={tab.activeTab} onChange={handleChange}>
           <Tab value={0}>Web Devlopment</Tab>
           <Tab value={1}>IoT</Tab>

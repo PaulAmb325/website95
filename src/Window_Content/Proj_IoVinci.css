@@ -1,0 +1,26 @@
+.iovinci_content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.iovinci_img {
+    height: 100px;
+    width: 200px;
+   
+}
+
+.iovinci_project{
+    margin-bottom: 15px;
+}
+
+.iovinci_work{
+    margin-bottom: 15px;
+}
+
+.iovinci_imgs {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

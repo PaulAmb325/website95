@@ -11,6 +11,10 @@ import ReadMe_Wind from './Window_Content/Readme_Wind';
 import AboutMe_Wind from './Window_Content/AboutMe_Wind';
 import Projects_Wind from './Window_Content/Projects_Wind';
 import Skills_Wind from './Window_Content/Skills_Wind';
+import Proj_IoVinci from './Window_Content/Proj_IoVinci';
+import Proj_Game from './Window_Content/Proj_Game';
+import Proj_Website95 from './Window_Content/Proj_Website95';
+import Proj_CoWorkers from './Window_Content/Proj_CoWorkers';
 
 
 class Window_comp extends Component {
@@ -95,6 +99,7 @@ class Window_comp extends Component {
         //Style full
         }else if(this.state.full){
             style = {
+                overflow:'auto',
                 top:'0px',
                 left: '0px',
                 position: 'absolute',
@@ -137,6 +142,14 @@ class Window_comp extends Component {
                     return <Projects_Wind defaultSearch={this.state.tag}></Projects_Wind>;
                 case 'skills':
                     return <Skills_Wind startProjSearch={this.startProjSearch}></Skills_Wind>;
+                case 'proj_iovinci':
+                    return <Proj_IoVinci></Proj_IoVinci>;
+                case 'proj_game':
+                    return <Proj_Game></Proj_Game>;
+                case 'proj_95':
+                    return <Proj_Website95></Proj_Website95>;
+                case 'proj_coworkers':
+                    return <Proj_CoWorkers></Proj_CoWorkers>
                 default:
                     return "You broke the website ";
             }
