@@ -68,12 +68,10 @@ class App extends React.Component {
       {idWindow: 'proj_coworkers', img: 'co-workers.svg', name:'Co-Workers'},
     ],
     windowsOpen : [
-      {idWindow: 'ReadMe', img : 'notepad_file.ico', name:'ReadMe', changeIndex: 0},
-      {idWindow: 'Me', img: 'user.ico', name:'About Me', changeIndex: 0}
+      {idWindow: 'ReadMe', img : 'notepad_file.ico', name:'ReadMe', changeIndex: 0},  
     ],
     windowsOpenRender : [
       {idWindow: 'ReadMe', img : 'notepad_file.ico', name:'ReadMe', changeIndex: 0},
-      {idWindow: 'Me', img: 'user.ico', name:'About Me', changeIndex: 0}
     ]
 
   }

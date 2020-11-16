@@ -6,8 +6,33 @@
     margin: auto;
 }
 
+#name{
+    font-weight: bolder;
+}
+
 .leftCol{
     margin-right: 10px;
+    margin-left: auto;
+}
+
+.righCol{
+    width: 50%;
+    margin-right: auto;
+}
+.me_pos{
+    padding-top: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    padding-bottom: 5px;
+}
+.me_school {
+    font-weight: bolder;
+}
+
+.me_diploma {
+    font-size: 0.8em;
+    font-style: italic;
+    font-weight: bolder;
 }
 
 .panel {
@@ -31,6 +56,14 @@
     margin-top: 5px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+}
+.scol1{
+    margin-bottom: 15px;
+}
+
+.scol2{
+    margin-bottom: 15px;
 }
 
 .dl_resume {
@@ -38,13 +71,18 @@
 }
 
 .hobby1 {
-    flex: 1 1;
+    
+    margin-right: 5%;
 }
 
 .hobby2 {
-    flex: 1 1;
+    margin-right: 5%;
 }
 
-.hobby3 {
-    flex: 1 1;
+.hobbiesFieldSet{
+    margin-top: 15px !important;
+}
+
+.hobbyIco {
+    font-size: 3.5em;
 }

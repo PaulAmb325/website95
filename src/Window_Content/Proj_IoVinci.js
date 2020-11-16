@@ -16,8 +16,8 @@ function Proj_IoVinci_Wind() {
   return (
         <div className='iovinci_content'>
           <div className='iovinci_imgs'>
-            <img className='iovinci_img' src={process.env.PUBLIC_URL+'logo-disrupt-campus.png'} alt="Logo DCT"/>
-            <img className='iovinci_img' src={process.env.PUBLIC_URL+'logo-vinci.png'} alt="Logo Vinci Facilities"/>
+            <a href="https://www.disruptcampus-toulouse.fr/" target="_blank"><img className='iovinci_img' src={process.env.PUBLIC_URL+'logo-disrupt-campus.png'} alt="Logo DCT"/></a>
+            <a href="https://www.vinci.com/vinci.nsf/fr/index.htm" target="_blank"><img className='iovinci_img' src={process.env.PUBLIC_URL+'logo-vinci.png'} alt="Logo Vinci Facilities"/></a>
           </div>
           
             <Fieldset label ="The Project" className="iovinci_project">
@@ -46,14 +46,20 @@ function Proj_IoVinci_Wind() {
                   <div style={{ height: 'auto' }}>
                     <div className="iovinci_p2">
                       <div className="iovinci_p2_txt">
-
+                        <p>ijidjizajddddddddddddddd</p>
                       </div>
-                      <div className="iovinci_imgcont2"><img className="iovinci_p2_img" src={process.env.PUBLIC_URL+'grp.jpg'}/></div>
+                      <div className="iovinci_imgcont2"><img className="iovinci_p2_img" src={process.env.PUBLIC_URL+'capt.jpg'}/></div>
                     </div>
                   </div>
                 )}
                 {tab.activeTab === 2 && (
-                    <div style={{ height: '20vh' }}>
+                    <div style={{ height: 'auto' }}>
+                      <div className="iovinci_p3">
+                      <div className="iovinci_imgcont3"><img className="iovinci_p3_img" src={process.env.PUBLIC_URL+'spring-boot-logo.png'}/></div>
+                      <div className="iovinci_p3_txt">
+                        <p>ijidjizajddddddddddddddd</p>
+                      </div>
+                    </div>
                     </div>
                 )}
         </TabBody>
