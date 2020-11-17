@@ -290,7 +290,7 @@ class App extends React.Component {
               <Button square={true} onClick={() => window.open("https://github.com/PaulAmb325", "_blank")}>
                 <img src='github-Logo.png' alt='settings' style={{ height: '20px'}} />
               </Button>
-              <Button square={true} onClick={() => window.open("https://github.com/PaulAmb325", "_blank")}>
+              <Button square={true} onClick={() => window.open("https://twitter.com/paul_amblard", "_blank")}>
                 <img src='Twitter-Logo.png' alt='settings' style={{ height: '20px'}} />
               </Button>
             </div>

@@ -20,3 +20,77 @@
 .game_features{
     margin-bottom: 10px;
 }
+
+
+.game_props{
+    display: flex;
+    flex-direction: column;
+}
+
+.game_props_txt{
+    padding-left: 15px;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+.game_props_gif{
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 350px;
+   /*  max-width:400px;
+    max-height:400px;
+    width: auto;
+    height: auto; */
+}
+
+
+.game_coins{
+    display: flex;
+    flex-direction: column;
+}
+
+.game_coins_txt{
+    padding-left: 15px;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+.game_coins_gif{
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 350px;
+   /*  max-width:400px;
+    max-height:400px;
+    width: auto;
+    height: auto; */
+}
+
+.game_light{
+    display: flex;
+    flex-direction: column;
+}
+
+.game_light_txt{
+    padding-left: 15px;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+.game_light_gif{
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 350px;
+   /*  max-width:400px;
+    max-height:400px;
+    width: auto;
+    height: auto; */
+}
