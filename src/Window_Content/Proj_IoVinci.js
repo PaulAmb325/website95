@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from 'react';
-import { Fieldset, Tab, Tabs, TabBody, Cutout } from 'react95';
+import { Fieldset, Tab, Tabs, TabBody, Cutout, Anchor } from 'react95';
 
 import './Proj_IoVinci.css' 
 
@@ -46,7 +46,10 @@ function Proj_IoVinci_Wind() {
                   <div style={{ height: 'auto' }}>
                     <div className="iovinci_p2">
                       <div className="iovinci_p2_txt">
-                        <p>ijidjizajddddddddddddddd</p>
+                        <p>The Proof Of Concept sensor measure temperature, humidity and dust. It uses an Arduino micro -processor and 2G with SIM Card to send the Data to the API. <br />
+                        The captor is powered by a small battery that handle 2-3 week of autonomy. <br />
+                        The box was made using laser cutting on plexiglass with the help of a <Anchor href="fabmanager.mjcstj31.fr" target="_blank">FabLab</Anchor> 
+                        </p>
                       </div>
                       <div className="iovinci_imgcont2"><img className="iovinci_p2_img" src={process.env.PUBLIC_URL+'capt.jpg'}/></div>
                     </div>
@@ -57,7 +60,7 @@ function Proj_IoVinci_Wind() {
                       <div className="iovinci_p3">
                       <div className="iovinci_imgcont3"><img className="iovinci_p3_img" src={process.env.PUBLIC_URL+'spring-boot-logo.png'}/></div>
                       <div className="iovinci_p3_txt">
-                        <p>ijidjizajddddddddddddddd</p>
+                        <p>The Java Spring API used to treat the data of the sensor. It verifies if the data are coherent (date and place) and treat them. <br/> The API then connect to Microsoft Azure to store the data in the One Drive of the company.</p>
                       </div>
                     </div>
                     </div>
