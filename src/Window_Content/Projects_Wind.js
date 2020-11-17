@@ -86,27 +86,27 @@ function Projects_Wind(props) {
             },
             {name: "IoVinci", 
             img : "./capt.jpg", 
-            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat lacus consequat augue dapibus, non congue massa tincidunt. Fusce id lorem libero. Donec in massa in tellus tempus ornare at sit amet nisi. Cras semper, risus eu tristique accumsan, neque neque convallis nulla, id pellentesque nibh purus pharetra mi. Sed sapien arcu, accumsan eu venenatis non, aliquam eu ante. Mauris dapibus mauris eget nisl volutpat, vitae viverra nulla varius. In finibus consectetur nibh ut sagittis. Nunc congue metus cursus scelerisque auctor. Proin augue eros, ultrices nec tellus porttitor, interdum pellentesque libero.",
+            description: "IoVinci is the name of the project our team presented for the edition 2019-2020 of Disrupt’Campus Toulouse. For this project a team of students from Law, Sociology and Computer Sciences collaborated with Vinci Facilities to explore new possibility to reduce work accident of the technicians. \n We produced a Proof of Concept for ventilation equipment by creating a IoT Sensor to collect data to train a Machine Learning Algorithm and store the data in the One Drive of the company. \n Sadly the project was aborted due to COVID-19.",
             tags : ["Java", "Electronics", "Cloud Service", "Machine Learning","Networking","Database"]
             },
             {name: "Fact or Fake", 
             img : "./someHandsomeGuy.jpg", 
-            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat lacus consequat augue dapibus, non congue massa tincidunt. Fusce id lorem libero. Donec in massa in tellus tempus ornare at sit amet nisi. Cras semper, risus eu tristique accumsan, neque neque convallis nulla, id pellentesque nibh purus pharetra mi. Sed sapien arcu, accumsan eu venenatis non, aliquam eu ante. Mauris dapibus mauris eget nisl volutpat, vitae viverra nulla varius. In finibus consectetur nibh ut sagittis. Nunc congue metus cursus scelerisque auctor. Proin augue eros, ultrices nec tellus porttitor, interdum pellentesque libero.",
+            description:"Fact or Fake was the 4-day term project by team of 3 for the first semester of my master’s degree. The goal was to create an interface to analyze text and find statement that needed to be checked. \n The teacher gave us the data set classified and we implemented the interface to load document and try algorithm on it (KNN, Random Forest, etc..)  \n  The code isn’t available as the data set was confidential.",
             tags : ["Python", "ScikitLearn", "UI/UX", "Machine Learning"]
             },
             {name: "Data Visualization  State of the Art", 
             img : "./data-viz.png", 
-            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat lacus consequat augue dapibus, non congue massa tincidunt. Fusce id lorem libero. Donec in massa in tellus tempus ornare at sit amet nisi. Cras semper, risus eu tristique accumsan, neque neque convallis nulla, id pellentesque nibh purus pharetra mi. Sed sapien arcu, accumsan eu venenatis non, aliquam eu ante. Mauris dapibus mauris eget nisl volutpat, vitae viverra nulla varius. In finibus consectetur nibh ut sagittis. Nunc congue metus cursus scelerisque auctor. Proin augue eros, ultrices nec tellus porttitor, interdum pellentesque libero.",
-            tags : ["Python", "JavaScript", "UI/UX", "Seaborn", "D3.js"]
+            description:"For my Bachelor thesis I choose to make a State of the Art of Data Visualization libraries on Python and JavaScript. The goal was to explore new mean of displaying data for researchers that mainly used the basic plot of R to display data. \n  I worked on a data set (confidential) used by researcher and tried to explore the possibility of interactive maps.",
+            tags : ["Python", "JavaScript", "UI/UX", "Data Viz"]
             },
             {name: "Parcel Gestion", 
             img : "./someHandsomeGuy.jpg", 
-            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat lacus consequat augue dapibus, non congue massa tincidunt. Fusce id lorem libero. Donec in massa in tellus tempus ornare at sit amet nisi. Cras semper, risus eu tristique accumsan, neque neque convallis nulla, id pellentesque nibh purus pharetra mi. Sed sapien arcu, accumsan eu venenatis non, aliquam eu ante. Mauris dapibus mauris eget nisl volutpat, vitae viverra nulla varius. In finibus consectetur nibh ut sagittis. Nunc congue metus cursus scelerisque auctor. Proin augue eros, ultrices nec tellus porttitor, interdum pellentesque libero.",
+            description:"This is one of my assignment of the second year. The goal was to make a Parcel Gestion System using AngulagJs and MariaDB. I have a gone a bit further by creating an API to simplify acess to the database and added some style by using SemanticUI. At the end I was able to display every info clearly in one page. \n github.com/PaulAmb325/ParcelGestion",
             tags : ["HTML/CSS", "AngularJs", "NodeJs", "Database", "JavaScript", "Git"]
             },
             {name: "Co-Workers", 
             img : "./someHandsomeGuy.jpg", 
-            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat lacus consequat augue dapibus, non congue massa tincidunt. Fusce id lorem libero. Donec in massa in tellus tempus ornare at sit amet nisi. Cras semper, risus eu tristique accumsan, neque neque convallis nulla, id pellentesque nibh purus pharetra mi. Sed sapien arcu, accumsan eu venenatis non, aliquam eu ante. Mauris dapibus mauris eget nisl volutpat, vitae viverra nulla varius. In finibus consectetur nibh ut sagittis. Nunc congue metus cursus scelerisque auctor. Proin augue eros, ultrices nec tellus porttitor, interdum pellentesque libero.",
+            description:"Co-Workers is the result of two weeks of works. We was asked to improve co-working spaces and our decision was to create a social network for co-working spaces that encourage interaction. The App include an help system, events, social and the possibility to redeem point you gained by being social. \n We also implemented an interactive map that indicate the position of the user in real time(that agree) using face-recognition. And a payment system with rfid card to redeem the points. \n https://github.com/go-roots",
             tags : ["HTML/CSS", "React", "NodeJs", "Database", "JavaScript", "UI/UX", "Hosting","IoT", "Python", "Machine Learning", "Flask", "Docker", "Cloud Service","Git"]
             },
         ],

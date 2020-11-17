@@ -1,5 +1,5 @@
 import React , {useEffect, useState } from 'react';
-import { Fieldset, Tab, Tabs, TabBody } from 'react95';
+import { Fieldset, Tab, Tabs, TabBody, Anchor } from 'react95';
 
 import './Proj_CoWorkers.css'
  
@@ -28,7 +28,10 @@ function ReadMe_Wind() {
                       {tab.activeTab === 0 && (
                         <div style={{ height: 'auto' }}>
                           <Fieldset label ="Concept" className="cw_Proj_concept">
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                          Co-Workers is the result of two weeks of works. We was asked to improve co-working spaces and our decision was to create a social network for co-working spaces that encourage interaction. The App include an help system, events, social and the possibility to redeem point you gained by being social.
+                          <br /> We also implemented an interactive map that indicate the position of the user in real time(that agree) using face-recognition. And a payment system with rfid card to redeem the points.
+                          <br /> More infos :  <Anchor href='https://github.com/go-roots' target='_blank'> {' '}here</Anchor>
+
                           </Fieldset>
                           <Fieldset label ="Features" className="cw_Proj_features">
                           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
