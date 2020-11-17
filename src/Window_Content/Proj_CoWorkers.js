@@ -1,5 +1,5 @@
 import React , {useEffect, useState } from 'react';
-import { Fieldset, Tab, Tabs, TabBody, Anchor } from 'react95';
+import { Fieldset, Tab, Tabs, TabBody, Anchor, Avatar } from 'react95';
 
 import './Proj_CoWorkers.css'
  
@@ -34,43 +34,47 @@ function ReadMe_Wind() {
 
                           </Fieldset>
                           <Fieldset label ="Features" className="cw_Proj_features">
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
-                          </Fieldset>
-                          <Fieldset label ="Team" className="cw_Proj_Team">
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
-                          </Fieldset>
+                          <img className="cw_image1" src={process.env.PUBLIC_URL+ "co-worker1.jpg"}/>
+                          <img className="cw_image2" src={process.env.PUBLIC_URL+ "co-worker_social.png"}/>
+                          </Fieldset> 
+                          {/* <Fieldset className="cw_team" label ="Team" className="cw_Proj_Team">
+                          <div className="cw_t1"><Avatar /><p>Ilja Stepanov - </p></div>
+                          <div className="cw_t2"><Avatar /><p></p></div>
+                          <div className="cw_t3"><Avatar /><p></p></div>
+                          </Fieldset> */}
                         </div>
                       )}
                       {tab.activeTab === 1 && (
                         <div className="cw_web" style={{ height: 'auto' }}>
                           <Fieldset label ="Infos">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                            We started the project by creating the Website using BootStrap Studio and obtained a HTML/CSS skeleton. After that we translated it in React components and started to add the Redux Stores as the API implementation advanced. 
                           </Fieldset>
                           <div className="cw_web_desktop">
-                            <img src={process.env.PUBLIC_URL+'logo-disrupt-campus.png'} alt="Logo DCT" className="cw_web_dskt_img"/>
+                            <img src={process.env.PUBLIC_URL+'co-worker_dashboard.png'} alt="Logo DCT" className="cw_web_dskt_img"/>
                             <Fieldset className="cw_web_dskt_text" label ="Features">
-                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                            One of the main feature of the app is the interactive, real-time map to know the position of the others users. With a powerful filter system to afinate the search.<br /><br /> From this screen you can also access the help system that will send an help request on the filtered users. <br /><br />By helping others user can receive points to redeem and also have their skills recommended on LinkedIn.
                             </Fieldset>
                           </div>
-                          <div className="cw_web_smartphone">
+                          {/* <div className="cw_web_smartphone">
                             <Fieldset className="cw_web_smrt_text" label ="Features">
                               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
                             </Fieldset>
                             <img src={process.env.PUBLIC_URL+'logo-vinci.png'} alt="Logo Vinci Facilities" className="cw_web_smrt_img"/>
-                          </div>
+                          </div> */}
 
                         </div>
                       )}
                       {tab.activeTab === 2 && (
                           <div style={{ height: 'auto' }}>
-                            <Fieldset label ="Infos">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                            <Fieldset className="cw_api_infos" label ="Infos">
+                            We used NodeJs to create an API used by the website and the IoT devices for the RFID payment. The API is RESTful and securized using the OAuth2 protocol, we also used Mongoose ORM to handle the MongoDB Database. <br /> We overall tried to use state of the art standard as the API was the real backbode of the project.
                             </Fieldset>
-                            <Fieldset label ="Database">
+                            {/* <Fieldset className="cw_api_database" label ="Database">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
-                            </Fieldset>
-                            <Fieldset label ="Documentation">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                            </Fieldset> */}
+                            <Fieldset className="cw_api_documentation" label ="Documentation">
+                            <div className="cw_doc_img"><img className="cw_doc_img" src={process.env.PUBLIC_URL+'cw_postman.png'}/></div>
+                            <p className="cw_doc_txt">We used Postman to keep track of the queries and have example for others to use the API. It also enabled us to run test in both the dev environment and production one according to circumstances. </p>
                             </Fieldset>
                           </div>
                       )}
@@ -83,12 +87,12 @@ function ReadMe_Wind() {
                               <TabBody style={{position:'relative'}}>
                               {tabIoT.activeTabIoT === 0 && (
                                 <div style={{ height: 'auto' }}>
-                                  Face rec
+                                 <img className="cw_doc_img" src={process.env.PUBLIC_URL+'cw-facerec.png'}/>
                                 </div>
                               )}
                               {tabIoT.activeTabIoT === 1 && (
                                 <div style={{ height: 'auto' }}>
-                                  RFID
+                                  <img className="cw_rfid_img" src={process.env.PUBLIC_URL+'cw-rfid.png'}/>
                                 </div>
                               )}
                               </TabBody>

@@ -4,6 +4,7 @@
 
 .cw_Proj_features{
     margin-bottom: 15px;
+    align-items: center;
 }
 
 .cw_web{
@@ -12,12 +13,15 @@
 }
 
 .cw_web_desktop{
+    margin-top: 15px;
+    margin-bottom: 15px;
     display: flex;
 }
 
 .cw_web_dskt_img{
+    margin-right: 10px;
     flex: 1;
-    width: 50%;
+    width: 60%;
 }
 
 .cw_web_dskt_text{
@@ -35,4 +39,60 @@
 
 .cw_web_smrt_img{
     flex: 1 1 auto;
+}
+
+
+.cw_image1{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 60vh;
+    height: auto;
+    padding: 5px;
+    
+}
+
+.cw_image2{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 110vh;
+    height: auto;
+    padding: 5px;
+}
+
+
+.cw_api_infos{
+    margin-bottom: 15px;
+}
+
+.cw_api_database{
+    margin-bottom: 15px;
+}
+.cw_api_documentation{
+    display: flex;
+    flex-direction: column;
+}
+
+.cw_doc_txt{
+    padding-left: 15px;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+.cw_doc_img{
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 450px;
+}
+
+.cw_rfid_img{
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 650px;
 }
