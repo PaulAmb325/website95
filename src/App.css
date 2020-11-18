@@ -18,13 +18,19 @@ body {
 	width: 100%;
 	left: auto;
 	position: absolute;
-	
-}
+	top: auto !important;
+} 
 
 /* Overwrite the position absolute that casse les burnes */
-.gXnjfN{
+/* .gXnjfN{
 	position: relative !important;
-}
+} */
+
+/* .myAppbar{
+	top: auto;
+	bottom: 0;
+	
+} */
 
 .divider{
 	margin-left: 5px !important;

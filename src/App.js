@@ -240,8 +240,8 @@ class App extends React.Component {
               <Window_comp key={item.idWindow} id={item.idWindow} closeWindow={this.closeWindow} openWindow={this.openWindow} setActive={this.setActive} x={15 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)} changeIndex={item.changeIndex} name={item.name}></Window_comp>
             ))}
           </div>
-        <div className = "task_bar">
-          <AppBar fixed = {false}>
+        {/* <div className = "task_bar"> */}
+          <AppBar className="task_bar" fixed = {false}>
             <Toolbar>
               <div>
                 <Button className="startMenu">
@@ -296,7 +296,7 @@ class App extends React.Component {
             </div>
             </Toolbar>
           </AppBar>
-        </div>
+        {/* </div> */}
         </ThemeProvider>
       </div>
       );
