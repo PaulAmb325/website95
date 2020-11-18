@@ -34,7 +34,7 @@ function Skills_Wind(props) {
           <Tab value={0}>Web Devlopment</Tab>
           <Tab value={1}>IoT</Tab>
           <Tab value={2}>Data Science</Tab>
-          <Tab value={3}>Soft Skills</Tab>
+          <Tab value={3}>Others - Soft Skills</Tab>
         </Tabs>
         <TabBody>
           {tab.activeTab === 0 && (
@@ -43,29 +43,45 @@ function Skills_Wind(props) {
               className='sk_Graphs'
               data= {[
                 {
-                  "skill": "JavaScript",
+                  "skill": "HTML/CSS",
                   "value": 7,
                 },
                 {
-                  "skill": "bitter",
-                  "value": 4,
+                  "skill": "JavaScript",
+                  "value": 8,
                 },
                 {
-                  "skill": "heavy",
+                  "skill": "ReactJs",
+                  "value": 7,
+                },
+                {
+                  "skill": "AngularJs",
+                  "value": 6,
+                },
+                {
+                  "skill": "NodeJs",
+                  "value": 8,
+                },
+                {
+                  "skill": "Database SQL - NO/SQL",
+                  "value": 9,
+                },
+                {
+                  "skill": "Java (Spring)",
                   "value": 5,
                 },
                 {
-                  "skill": "strong",
-                  "value": 4,
+                  "skill": "Hosting",
+                  "value": 7,
                 },
                 {
-                  "skill": "sunny",
-                  "value": 10,
+                  "skill": "Python (Flask)",
+                  "value": 6,
                 }
               ]}
               keys={[ 'value']}
               indexBy="skill"
-              maxValue="auto"
+              maxValue="10"
               margin={{ top: 25, right: 45, bottom: 20, left: 45 }}
               curve="linearClosed"
               borderWidth={2}
@@ -98,29 +114,29 @@ function Skills_Wind(props) {
                    className='sk_Graphs'
                    data= {[
                      {
-                       "skill": "JavaScript",
+                       "skill": "C",
                        "value": 7,
                      },
                      {
-                       "skill": "bitter",
-                       "value": 4,
+                       "skill": "Cloud Service",
+                       "value": 6,
                      },
                      {
-                       "skill": "heavy",
+                       "skill": "Communication Protocol",
                        "value": 5,
                      },
                      {
-                       "skill": "strong",
-                       "value": 4,
+                       "skill": "Electronics",
+                       "value": 7,
                      },
                      {
-                       "skill": "sunny",
-                       "value": 10,
+                       "skill": "Networking",
+                       "value": 7,
                      }
                    ]}
                    keys={[ 'value']}
                    indexBy="skill"
-                   maxValue="auto"
+                   maxValue="10"
                    margin={{ top: 20, right: 45, bottom: 20, left: 45 }}
                    curve="linearClosed"
                    borderWidth={2}
@@ -152,29 +168,33 @@ function Skills_Wind(props) {
                    className='sk_Graphs'
                    data= {[
                      {
-                       "skill": "JavaScript",
+                       "skill": "Python",
+                       "value": 9,
+                     },
+                     {
+                       "skill": "Scikit Learn",
                        "value": 7,
                      },
                      {
-                       "skill": "bitter",
-                       "value": 4,
+                       "skill": "R",
+                       "value": 6,
                      },
                      {
-                       "skill": "heavy",
-                       "value": 5,
+                       "skill": "Database SQL - NO/SQL",
+                       "value": 9,
                      },
                      {
-                       "skill": "strong",
-                       "value": 4,
+                       "skill": "Machine Learning",
+                       "value": 7,
                      },
                      {
-                       "skill": "sunny",
-                       "value": 10,
+                       "skill": "Data Visualization",
+                       "value": 8,
                      }
                    ]}
                    keys={[ 'value']}
                    indexBy="skill"
-                   maxValue="auto"
+                   maxValue="10"
                    margin={{ top: 20, right: 45, bottom: 20, left: 45 }}
                    curve="linearClosed"
                    borderWidth={2}
@@ -206,29 +226,37 @@ function Skills_Wind(props) {
                    className='sk_Graphs'
                    data= {[
                      {
-                       "skill": "JavaScript",
+                       "skill": "Agile Project Management",
                        "value": 7,
                      },
                      {
-                       "skill": "bitter",
-                       "value": 4,
+                       "skill": "Git",
+                       "value": 8,
                      },
                      {
-                       "skill": "heavy",
-                       "value": 5,
+                       "skill": "Dockers",
+                       "value": 7,
                      },
                      {
-                       "skill": "strong",
-                       "value": 4,
+                       "skill": "UI/UX",
+                       "value": 7,
                      },
                      {
-                       "skill": "sunny",
-                       "value": 10,
+                       "skill": "Capacity to learn",
+                       "value": 8,
+                     },
+                     {
+                       "skill": "Creativity",
+                       "value": 9,
+                     },
+                     {
+                       "skill": "Design thinking",
+                       "value": 7,
                      }
                    ]}
                    keys={[ 'value']}
                    indexBy="skill"
-                   maxValue="auto"
+                   maxValue="10"
                    margin={{ top: 20, right: 45, bottom: 20, left: 45 }}
                    curve="linearClosed"
                    borderWidth={2}
