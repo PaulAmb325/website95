@@ -44,6 +44,8 @@ class App extends React.Component {
     super(props);
   }
   state = {
+    startMenu : false,
+
     activeWindow : "ReadMe",
 
     allIcons : [
@@ -225,6 +227,11 @@ class App extends React.Component {
     return pos;
   }
 
+  setStartMenu(){
+    var strtMenu = this.state.startMenu;
+    this.setState({startMenu: !strtMenu})
+  }
+
 
 
     render(){
@@ -244,34 +251,21 @@ class App extends React.Component {
           <AppBar className="task_bar" fixed = {false}>
             <Toolbar>
               <div>
-                <Button className="startMenu">
+                <Button className="startMenu" onClick={() => this.setStartMenu()}>
                   <img src='windows-0.png' alt='logo' style={{ height: '20px', marginRight: 4 }}/>
                     <p >Start</p>
                 </Button>
                 
-                {/* { {openStart && (
-                <List style={{position: 'absolute', left: '0', bottom: '100%'}} onClick={() => setOpenStart(false)}>
-                  <ListItem>
-                    <span role='img' aria-label='👨‍💻'>
-                      👨‍💻
-                    </span>
-                    Profile
-                  </ListItem>
-                  <ListItem>
-                    <span role='img' aria-label='📁'>
-                      📁
-                    </span>
-                    My account
-                  </ListItem>
-                  <Divider />
-                  <ListItem disabled>
-                    <span role='img' aria-label='🔙'>
-                      🔙
-                    </span>
-                    Logout
-                  </ListItem>
+                {this.state.startMenu && (
+                <List style={{position: 'absolute', left: '0', bottom: '100%', fontFamily: 'ms_sans_serif'}} >
+                  <ListItem onClick={() => this.openWindow("projs")}>
+                <span role='img' aria-label='📁'>
+                  📁
+                </span>
+                Projects
+                </ListItem>
                 </List>
-                )} } */}
+                )} 
               </div>
               <Divider orientation="vertical" size="35px" className='divider'/>
               <div>

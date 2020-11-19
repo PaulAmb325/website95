@@ -80,7 +80,7 @@ function Projects_Wind(props) {
             tags : ["React", "Creativity", "HTML/CSS", "JavaScript", "Hosting","UI/UX","Git"]
             },
             {name: "An Unnamed Rogue Game", 
-            img : "./someHandsomeGuy.jpg", 
+            img : "./game.png", 
             description:"During the lockdown of may 2020 I decided to make my child dream come true and make a game. I started the the project and learnt skills such as UX/UI and art. \n However the more features added the more I figured out that using Python may have been a bad idea. By fixing most of the optimizations the game became playable again! \n I really want to continue and finish this game but sadly the amount of time needed to make a game alone it too high.",
             tags : ["UI/UX", "Creativity", "Python"]
             },
@@ -90,7 +90,7 @@ function Projects_Wind(props) {
             tags : ["Java", "Electronics", "Cloud Service", "Machine Learning","Networking","Database"]
             },
             {name: "Fact or Fake", 
-            img : "./someHandsomeGuy.jpg", 
+            img : "./factorfake.jpg", 
             description:"Fact or Fake was the 4-day term project by team of 3 for the first semester of my master’s degree. The goal was to create an interface to analyze text and find statement that needed to be checked. \n The teacher gave us the data set classified and we implemented the interface to load document and try algorithm on it (KNN, Random Forest, etc..)  \n  The code isn’t available as the data set was confidential.",
             tags : ["Python", "ScikitLearn", "UI/UX", "Machine Learning"]
             },
@@ -100,12 +100,12 @@ function Projects_Wind(props) {
             tags : ["Python", "JavaScript", "UI/UX", "Data Viz"]
             },
             {name: "Parcel Gestion", 
-            img : "./someHandsomeGuy.jpg", 
+            img : "./parcelgestion.png", 
             description:"This is one of my assignment of the second year. The goal was to make a Parcel Gestion System using AngulagJs and MariaDB. I have a gone a bit further by creating an API to simplify acess to the database and added some style by using SemanticUI. At the end I was able to display every info clearly in one page. \n github.com/PaulAmb325/ParcelGestion",
             tags : ["HTML/CSS", "AngularJs", "NodeJs", "Database", "JavaScript", "Git"]
             },
             {name: "Co-Workers", 
-            img : "./someHandsomeGuy.jpg", 
+            img : "./co-worker_dashboard.PNG", 
             description:"Co-Workers is the result of two weeks of works. We was asked to improve co-working spaces and our decision was to create a social network for co-working spaces that encourage interaction. The App include an help system, events, social and the possibility to redeem point you gained by being social. \n We also implemented an interactive map that indicate the position of the user in real time(that agree) using face-recognition. And a payment system with rfid card to redeem the points. \n https://github.com/go-roots",
             tags : ["HTML/CSS", "React", "NodeJs", "Database", "JavaScript", "UI/UX", "Hosting","IoT", "Python", "Machine Learning", "Flask", "Docker", "Cloud Service","Git"]
             },
