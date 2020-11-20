@@ -279,13 +279,13 @@ class App extends React.Component {
               <Divider orientation="vertical" size="35px" className='divider menudivider'/>
             <div className='menu'>
             <Button square={true} onClick={() => window.open("https://www.linkedin.com/in/paul-amblard-059a0915a/", "_blank")}>
-                <img src='LinkedIn-Logo.png' alt='settings' style={{ height: '20px'}} />
+                <img src='social/LinkedIn-Logo.png' alt='settings' style={{ height: '20px'}} />
               </Button>
               <Button square={true} onClick={() => window.open("https://github.com/PaulAmb325", "_blank")}>
-                <img src='github-Logo.png' alt='settings' style={{ height: '20px'}} />
+                <img src='social/github-Logo.png' alt='settings' style={{ height: '20px'}} />
               </Button>
               <Button square={true} onClick={() => window.open("https://twitter.com/paul_amblard", "_blank")}>
-                <img src='Twitter-Logo.png' alt='settings' style={{ height: '20px'}} />
+                <img src='social/Twitter-Logo.png' alt='settings' style={{ height: '20px'}} />
               </Button>
             </div>
             </Toolbar>

@@ -29,7 +29,7 @@ function Projects_Wind(props) {
                 <div>
                         {projects.projects.map(item => (
                             <div key={item.name} className="pr_Proj">
-                                <Avatar key={item.img} className="avatar" size={150} src={item.img}/>
+                                <Avatar key={item.img} className="avatar" size={150} src={'/proj-img/' + item.img}/>
                                 <Fieldset label={item.name}>
                                     <p className="pr_desc">{item.description}</p>
                                     <br />
@@ -50,7 +50,7 @@ function Projects_Wind(props) {
                 <div>
                         {res.map(item => (
                             <div className="pr_Proj">
-                                <Avatar key={item.img} className="avatar" size={150} src={item.img}/>
+                                <Avatar key={item.img} className="avatar" size={150} src={'/proj-img/' + item.img}/>
                                 <Fieldset key={item.name} label={item.name}>
                                     <p className="pr_desc">{item.description}</p>
                                     <br />

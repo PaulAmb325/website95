@@ -46,7 +46,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 60vh;
+    max-width: 60vw;
     height: auto;
     padding: 5px;
     
@@ -56,7 +56,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 110vh;
+    max-width: 60vw;
     height: auto;
     padding: 5px;
 }
