@@ -1,5 +1,5 @@
-import React, { Component, useEffect, useState }from 'react';
-import {Avatar, Button, Cutout, Fieldset, Panel, TextField } from 'react95';
+import React, { useEffect, useState }from 'react';
+import {Avatar, Fieldset, TextField } from 'react95';
 
 import './Projects_Wind.css'
  
@@ -13,18 +13,10 @@ function Projects_Wind(props) {
         if (elem.name.toUpperCase().includes(search.searchValue.toUpperCase()) || elem.tags.find(tag => tag.toUpperCase().includes(search.searchValue.toUpperCase()))){
             return true;
         }
-        /* elem.tags.map(tag => {
-            console.log(tag)
-            if(tag.toUpperCase().includes(search.searchValue.toUpperCase())){
-                console.log("conform")
-                console.log(elem)
-                return true;
-            }
-        }); */
     }
 
     const renderProjects = () => {
-        if (search.searchValue == ''){
+        if (search.searchValue === ''){
             return (    
                 <div>
                         {projects.projects.map(item => (

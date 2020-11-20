@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import React, { useState, Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
+
 import Draggable from 'react-draggable';
 
-import { Window, WindowHeader, WindowContent,Tabs, Tab, TabBody, Fieldset, Checkbox, NumberField, Button, Cutout } from 'react95';
+import { Window, WindowHeader, WindowContent, Button, Cutout } from 'react95';
 
 import './Window_comp.css'
 
@@ -19,7 +19,7 @@ import Proj_CoWorkers from './Window_Content/Proj_CoWorkers';
 
 class Window_comp extends Component {
     constructor(props){
-        super(props);
+        
         //Full is if a windows is full screen or not and open is if the window is fully reduced or not
         this.state = {
             full: false,

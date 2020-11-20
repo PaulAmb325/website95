@@ -1,20 +1,13 @@
-import React ,{useEffect, useState } from 'react';
-import {ResponsiveRadar, Radar} from '@nivo/radar'
+import React ,{ useState } from 'react';
+import {ResponsiveRadar} from '@nivo/radar'
  
 import './Skills_Wind.css'
 
 
-import {Tooltip, Button, Tab, Tabs, TabBody, Fieldset, NumberField, Checkbox} from 'react95';
+import { Tab, Tabs, TabBody} from 'react95';
 
 function Skills_Wind(props) {
 
-   
-
-    function test(id){
-      console.log(props)
-      console.log("clicked")
-      console.log(id)
-    }
 
     const [tab, setTab] = useState({
         activeTab: 0
