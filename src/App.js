@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './App.css';
 //React 95 components
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-import { styleReset, List, ListItem, Divider, AppBar, Toolbar, Button } from 'react95';
+import { styleReset, List, ListItem, Divider, AppBar, Toolbar, Button, TextField } from 'react95';
 // pick a theme of your choice
 import original from "react95/dist/themes/original";
 // original Windows95 font (optionally)
@@ -15,6 +15,9 @@ import Icon from './Icon'
 import Window_comp from'./Window_comp'
 
 
+ //jsp cke c'est 
+//jsp cke c'est 
+ //jsp cke c'est 
 const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'ms_sans_serif';
@@ -34,9 +37,12 @@ const GlobalStyles = createGlobalStyle`
   ${styleReset}
 `;
 
+//const ref = useRef(null);
 
 class App extends React.Component {
-  
+  constructor(props) {
+    super(props);
+  }
   state = {
     startMenu : false,
 
@@ -90,6 +96,7 @@ class App extends React.Component {
   };
 
   reordonateOrder = id => {
+    //console.log(this.state.activeWindow);
     var pos = this.getWindRendPosByID(id);
     var winds = this.state.windowsOpenRender;
     this.array_move(winds,pos,this.state.windowsOpenRender.length-1);
@@ -102,6 +109,18 @@ class App extends React.Component {
   }
 
 
+  /* getMaxZ(){
+    //Return the higest Z of all windows
+    var maxZ = 0;
+    if(this.state.windowsOpen.length > 0){
+      for (var key in this.state.windowsOpen){
+        if(this.state.windowsOpen[key].z > maxZ){
+          maxZ = this.state.windowsOpen[key].z;
+        }
+      }
+    }
+    return maxZ
+  } */
   unminimizeWindow(id){
     this.setState({activeWindow:id})
     var wRen = this.state.windowsOpenRender;
@@ -117,26 +136,32 @@ class App extends React.Component {
   }
 
   openWindow = id =>{
+    //TO DO: Handle the creation of z index;
+    //console.log('OUI  :  ', id)
+    //console.log(this.state)
     var exist = false;
     var elem;
     if(this.state.windowsOpen.length > 0){
       for (var key in this.state.windowsOpen){
-        if(this.state.windowsOpen[key].idWindow === id){
+        if(this.state.windowsOpen[key].idWindow == id){
           exist = true;
         }
       }
     }
     if(!exist){
-      for (var keyW in this.state.allWindows){
-        if(this.state.allWindows[keyW].idWindow === id){
-          elem=this.state.allWindows[keyW];
+      for (var key in this.state.allWindows){
+        if(this.state.allWindows[key].idWindow == id){
+          elem=this.state.allWindows[key];
           elem.changeIndex = 0;
+          //elem.z = this.getMaxZ() + 1;
           
           this.setState({windowsOpen: [...this.state.windowsOpen, elem]},  function(){
             this.setState({windowsOpenRender: [...this.state.windowsOpenRender, elem]},  function(){
               //console.log('rend' , this.state.windowsOpenRender)
             });
             this.setState({activeWindow: elem.idWindow},  function(){
+              //console.log('act' , this.state.activeWindows)
+              //console.log('act' , elem)
             });
           });
          
@@ -145,6 +170,33 @@ class App extends React.Component {
       }
     }
   }
+
+  /* openProj = () =>{
+    var elem;
+    for (var key in this.state.allWindows){
+      if(this.state.allWindows[key].idWindow == 'projs'){
+        elem = this.state.allWindows[key];
+      }
+    }
+    const winOpRen = this.state.windowsOpenRender.filter(item => item.idWindow !== CloseId); 
+    const winOp = this.state.windowsOpen.filter(item => item.idWindow !== CloseId);
+
+    this.setState({windowsOpenRender: winOpRen}, function (){
+      this.setState({windowsOpen: winOp}, function(){
+        this.setState({windowsOpen: [...this.state.windowsOpen, elem]},  function(){
+          console.log('op' , this.state.windowsOpen)
+        });
+        this.setState({windowsOpenRender: [...this.state.windowsOpenRender, elem]},  function(){
+          console.log('rend' , this.state.windowsOpenRender)
+        });
+        this.setState({activeWindow: elem.idWindow},  function(){
+          console.log('act' , this.state.activeWindows)
+          console.log('act' , elem)
+        });
+      });
+    });
+    
+  } */
 
 
   closeWindow = CloseId =>{
@@ -219,7 +271,7 @@ class App extends React.Component {
               <div>
               {this.state.windowsOpen.map(item => (
               <Button onClick={() => this.unminimizeWindow(item.idWindow)}  active={item.idWindow == this.state.activeWindow ? true : false}>
-                <img src={"/icons/"+item.img} alt='une tache' style={{ height: '20px'}} />
+                <img src={"/icons/" +item.img} alt='une tache' style={{ height: '20px'}} />
                   <p>{item.name}</p>
               </Button>
               ))}
