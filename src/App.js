@@ -34,7 +34,6 @@ const GlobalStyles = createGlobalStyle`
   ${styleReset}
 `;
 
-//const ref = useRef(null);
 
 class App extends React.Component {
   constructor(props) {
@@ -89,11 +88,10 @@ class App extends React.Component {
         }
     }
     arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
-    return arr; // for testing purposes
+    return arr; 
   };
 
   reordonateOrder = id => {
-    //console.log(this.state.activeWindow);
     var pos = this.getWindRendPosByID(id);
     var winds = this.state.windowsOpenRender;
     this.array_move(winds,pos,this.state.windowsOpenRender.length-1);
@@ -105,26 +103,13 @@ class App extends React.Component {
     this.setState({activeWindow: id});
   }
 
-
-  /* getMaxZ(){
-    //Return the higest Z of all windows
-    var maxZ = 0;
-    if(this.state.windowsOpen.length > 0){
-      for (var key in this.state.windowsOpen){
-        if(this.state.windowsOpen[key].z > maxZ){
-          maxZ = this.state.windowsOpen[key].z;
-        }
-      }
-    }
-    return maxZ
-  } */
   unminimizeWindow(id){
     this.setState({activeWindow:id})
     var wRen = this.state.windowsOpenRender;
     var wOpe = this.state.windowsOpen;
     var wPos = this.getWindPosById(id);
     var wRPos = this.getWindRendPosByID(id);
-    //console.log(wRen[wRPos]);
+    
     wRen[wRPos].changeIndex = wRen[wRPos].changeIndex + 1;
     wOpe[wPos].changeIndex = wOpe[wPos].changeIndex + 1;
     this.setState({windowsOpen: wOpe});
@@ -133,9 +118,6 @@ class App extends React.Component {
   }
 
   openWindow = id =>{
-    //TO DO: Handle the creation of z index;
-    //console.log('OUI  :  ', id)
-    //console.log(this.state)
     var exist = false;
     var elem;
     if(this.state.windowsOpen.length > 0){
@@ -150,15 +132,11 @@ class App extends React.Component {
         if(this.state.allWindows[key].idWindow == id){
           elem=this.state.allWindows[key];
           elem.changeIndex = 0;
-          //elem.z = this.getMaxZ() + 1;
           
           this.setState({windowsOpen: [...this.state.windowsOpen, elem]},  function(){
             this.setState({windowsOpenRender: [...this.state.windowsOpenRender, elem]},  function(){
-              //console.log('rend' , this.state.windowsOpenRender)
             });
             this.setState({activeWindow: elem.idWindow},  function(){
-              //console.log('act' , this.state.activeWindows)
-              //console.log('act' , elem)
             });
           });
          
@@ -167,34 +145,6 @@ class App extends React.Component {
       }
     }
   }
-
-  /* openProj = () =>{
-    var elem;
-    for (var key in this.state.allWindows){
-      if(this.state.allWindows[key].idWindow == 'projs'){
-        elem = this.state.allWindows[key];
-      }
-    }
-    const winOpRen = this.state.windowsOpenRender.filter(item => item.idWindow !== CloseId); 
-    const winOp = this.state.windowsOpen.filter(item => item.idWindow !== CloseId);
-
-    this.setState({windowsOpenRender: winOpRen}, function (){
-      this.setState({windowsOpen: winOp}, function(){
-        this.setState({windowsOpen: [...this.state.windowsOpen, elem]},  function(){
-          console.log('op' , this.state.windowsOpen)
-        });
-        this.setState({windowsOpenRender: [...this.state.windowsOpenRender, elem]},  function(){
-          console.log('rend' , this.state.windowsOpenRender)
-        });
-        this.setState({activeWindow: elem.idWindow},  function(){
-          console.log('act' , this.state.activeWindows)
-          console.log('act' , elem)
-        });
-      });
-    });
-    
-  } */
-
 
   closeWindow = CloseId =>{
     const winOpRen = this.state.windowsOpenRender.filter(item => item.idWindow !== CloseId); 

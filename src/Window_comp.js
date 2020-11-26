@@ -156,20 +156,20 @@ class Window_comp extends Component {
         }
 
         return(
-                <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}: {x:this.state.coord.x, y:this.state.coord.y}} 
+            <Draggable handle='.windows-header' bounds = '.desktop'  position={this.state.full ?  {x: 0, y: 0}: {x:this.state.coord.x, y:this.state.coord.y}} 
                  onStart={this.handleDragStart} defaultPosition={{x: this.state.x, y: this.state.y}} 
                  onDrag={this.handleDrag}>
             <Window style = {this.handleStyle()}>
-                    <WindowHeader className="windows-header">
+                    <WindowHeader className="windows-header" draggable={false}>
                         {name}
-                        <div className='states'>
-                            <Button onClick={() => this.changeOpen()} square={true} className='button'>
+                        <div className='states' >
+                            <Button onClick={() => this.changeOpen()} square={true} className='button' >
                             _
                             </Button>
-                            <Button onClick={() => this.changefull()} square={true} className='button'>
+                            <Button onClick={() => this.changefull()} square={true} className='button' >
                             C
                             </Button>
-                            <Button onClick={() => closeWindow(id)}>
+                            <Button onClick={() => closeWindow(id)} >
                             X
                             </Button>
                         </div>  

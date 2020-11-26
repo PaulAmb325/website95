@@ -3,7 +3,7 @@ import { Fieldset, Tab, Tabs, TabBody, Anchor } from 'react95';
 
 import './Proj_IoVinci.css' 
 
-const IMG_SRC = 'IoVinci-img' + process.env.PUBLIC_URL;
+const IMG_SRC = '/IoVinci-img/' + process.env.PUBLIC_URL;
 
 function Proj_IoVinci_Wind() {
 
@@ -51,7 +51,7 @@ function Proj_IoVinci_Wind() {
                         The box was made using laser cutting on plexiglass with the help of a <Anchor href="fabmanager.mjcstj31.fr" target="_blank">FabLab</Anchor> 
                         </p>
                       </div>
-                      <div className="iovinci_imgcont2"><img className="iovinci_p2_img" src={IMG_SRC+'capt.jpg'} alt="sensor built"/></div>
+                      <div className="iovinci_imgcont2"><img className="iovinci_p2_img" src={'proj-img/capt.jpg'} alt="sensor built"/></div>
                     </div>
                   </div>
                 )}
