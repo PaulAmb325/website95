@@ -1,11 +1,7 @@
 import React, { useEffect, useState }from 'react';
 import {Avatar, Fieldset, TextField } from 'react95';
 
-import './Projects_Wind.css'
- 
-
-
-
+import './Projects_Wind.css';
 
 function Projects_Wind(props) {
 

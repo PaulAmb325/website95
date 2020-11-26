@@ -34,7 +34,7 @@ function Proj_IoVinci_Wind() {
                 {tab.activeTab === 0 && (
                   <div className="iovinci_overview" style={{ height: 'auto' }}>
                     <div className="iovinci_p1">
-                      <div className="iovinci_imgcont"><img className="iovinci_p1_img" src={IMG_SRC+'grp.jpg'} alt="group picture"/></div> 
+                      <div className="iovinci_imgcont"><img className="iovinci_p1_img" src={IMG_SRC+'grp.jpg'} alt="Le groupe IoVinci"/></div> 
                       <div className="iovinci_p1_txt">
                       <p>For this project Vinci Facilities wanted to explore new technologies such as IoT to reduce work incident and overall costs. Vinci Facilities is a company dedicated to maintenance of equipment in building. Some equipment are difficult to access such as ventilation and water evacuation. Maintenance for this equipment is risky and costly. <br /><br /> </p>
                       <p>We decided to provide a proof of concept for the ventilations by building a sensor to get data and try to establish a model to predict problems. This Proof of Concept also covered a law feasibility analysis and an analyzed the opinion of employees on this project.    </p>

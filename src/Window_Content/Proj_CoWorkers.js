@@ -1,5 +1,5 @@
-import React , {useEffect, useState } from 'react';
-import { Fieldset, Tab, Tabs, TabBody, Anchor, Avatar } from 'react95';
+import React , { useState } from 'react';
+import { Fieldset, Tab, Tabs, TabBody, Anchor } from 'react95';
 
 import './Proj_CoWorkers.css'
  
@@ -37,8 +37,8 @@ function ReadMe_Wind() {
 
                           </Fieldset>
                           <Fieldset label ="Features" className="cw_Proj_features">
-                          <img className="cw_image1" src={SRC_IMG+ "co-worker1.jpg"}/>
-                          <img className="cw_image2" src={SRC_IMG+ "co-worker_social.png"}/>
+                          <img className="cw_image1" src={SRC_IMG+ "co-worker1.jpg"} alt="app-menu"/>
+                          <img className="cw_image2" src={SRC_IMG+ "co-worker_social.png"} alt="social-menu"/>
                           </Fieldset> 
                           {/* <Fieldset className="cw_team" label ="Team" className="cw_Proj_Team">
                           <div className="cw_t1"><Avatar /><p>Ilja Stepanov - </p></div>
@@ -76,7 +76,7 @@ function ReadMe_Wind() {
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
                             </Fieldset> */}
                             <Fieldset className="cw_api_documentation" label ="Documentation">
-                            <div className="cw_doc_img"><img className="cw_doc_img" src={SRC_IMG+'cw_postman.png'}/></div>
+                            <div className="cw_doc_img"><img className="cw_doc_img" src={SRC_IMG+'cw_postman.png'} alt="app-postman"/></div>
                             <p className="cw_doc_txt">We used Postman to keep track of the queries and have example for others to use the API. It also enabled us to run test in both the dev environment and production one according to circumstances. </p>
                             </Fieldset>
                           </div>
@@ -90,12 +90,12 @@ function ReadMe_Wind() {
                               <TabBody style={{position:'relative'}}>
                               {tabIoT.activeTabIoT === 0 && (
                                 <div style={{ height: 'auto' }}>
-                                 <img className="cw_doc_img" src={SRC_IMG+'cw-facerec.png'}/>
+                                 <img className="cw_doc_img" src={SRC_IMG+'cw-facerec.png'} alt="app-facerec"/>
                                 </div>
                               )}
                               {tabIoT.activeTabIoT === 1 && (
                                 <div style={{ height: 'auto' }}>
-                                  <img className="cw_rfid_img" src={SRC_IMG+'cw-rfid.png'}/>
+                                  <img className="cw_rfid_img" src={SRC_IMG+'cw-rfid.png'} alt="app-rfid"/>
                                 </div>
                               )}
                               </TabBody>

@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Draggable from 'react-draggable';
 
 import './Icon.css'

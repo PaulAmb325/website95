@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import './App.css';
 //React 95 components
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-import { styleReset, List, ListItem, Divider, AppBar, Toolbar, Button, TextField } from 'react95';
+import { styleReset, List, ListItem, Divider, AppBar, Toolbar, Button } from 'react95';
 // pick a theme of your choice
 import original from "react95/dist/themes/original";
 // original Windows95 font (optionally)
@@ -15,9 +15,6 @@ import Icon from './Icon'
 import Window_comp from'./Window_comp'
 
 
- //jsp cke c'est 
-//jsp cke c'est 
- //jsp cke c'est 
 const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'ms_sans_serif';

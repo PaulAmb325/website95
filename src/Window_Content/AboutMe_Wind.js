@@ -1,9 +1,8 @@
 import React from 'react';
 import {Avatar, Button, Cutout, Fieldset, Panel, Tooltip } from 'react95';
 
-import {RiBoxingFill, RiGlobeFill} from 'react-icons/ri'
-import {MdComputer} from 'react-icons/md'
-import {GiBookCover, GiPositionMarker} from 'react-icons/gi'
+import {RiBoxingFill, RiGlobeFill} from 'react-icons/ri';
+import {GiBookCover, GiPositionMarker} from 'react-icons/gi';
 import './AboutMe_Wind.css'
  
 function AboutMe_Wind() {
