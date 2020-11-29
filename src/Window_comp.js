@@ -88,7 +88,6 @@ class Window_comp extends Component {
 
     handleStyle() {
         //Based on the state return the correct style
-        //TO DO: ADD the z index
         //Z-index change by order of render so just change in the list
         var style = {};
         //Style minimized
@@ -160,16 +159,16 @@ class Window_comp extends Component {
                  onStart={this.handleDragStart} defaultPosition={{x: this.state.x, y: this.state.y}} 
                  onDrag={this.handleDrag}>
             <Window style = {this.handleStyle()}>
-                    <WindowHeader className="windows-header" draggable={false}>
+                    <WindowHeader className="windows-header">
                         {name}
                         <div className='states' >
-                            <Button onClick={() => this.changeOpen()} square={true} className='button' >
+                            <Button onClick={() => this.changeOpen()} square={true} className='button' onTouchStart={() => this.changeOpen()}>
                             _
                             </Button>
-                            <Button onClick={() => this.changefull()} square={true} className='button' >
+                            <Button onClick={() => this.changefull()} square={true} className='button' onTouchStart={() => this.changefull()}>
                             C
                             </Button>
-                            <Button onClick={() => closeWindow(id)} >
+                            <Button onClick={() => closeWindow(id)} onTouchStart={() => closeWindow(id)}>
                             X
                             </Button>
                         </div>  

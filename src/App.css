@@ -17,20 +17,15 @@ body {
 	bottom: 0;
 	width: 100%;
 	left: auto;
+	height: 8vh;
 	position: absolute;
 	top: auto !important;
 } 
 
-/* Overwrite the position absolute that casse les burnes */
-/* .gXnjfN{
-	position: relative !important;
-} */
+ .tool_bar{
+	height: 100%;
+} 
 
-/* .myAppbar{
-	top: auto;
-	bottom: 0;
-	
-} */
 
 .divider{
 	margin-left: 5px !important;

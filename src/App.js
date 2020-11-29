@@ -196,7 +196,7 @@ class App extends React.Component {
           </div>
         {/* <div className = "task_bar"> */}
           <AppBar className="task_bar" fixed = {false}>
-            <Toolbar>
+            <Toolbar className="tool_bar">
               <div>
                 <Button className="startMenu" onClick={() => this.setStartMenu()}>
                   <img src='windows-0.png' alt='logo' style={{ height: '20px', marginRight: 4 }}/>
