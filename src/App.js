@@ -138,9 +138,7 @@ class App extends React.Component {
             });
             this.setState({activeWindow: elem.idWindow},  function(){
             });
-          });
-         
-          
+          });  
         }
       }
     }
@@ -154,9 +152,6 @@ class App extends React.Component {
     });
     this.setState({windowsOpen: winOp}, function(){
     });
-    
-    
-    
   }
 
   getIconPosById(id) {
@@ -179,6 +174,65 @@ class App extends React.Component {
     this.setState({startMenu: !strtMenu})
   }
 
+  getRandomIconX(){
+    return Math.random() * (window.innerWidth * 0.90);
+  }
+
+  getRandomIconY(){
+    return Math.random() * (window.innerHeight * 0.82);
+  }
+
+  getIconX(idIcon){
+    switch(idIcon) {
+      case 'rm':
+          return 0;
+      case 'me':
+          return 80;
+      case 'projs':
+          return 0;
+      case 'skills':
+          return 80;
+      case 'iovinci':
+          return 0;
+      case 'unnamedGame':
+          return 80;
+      case 'coworkers':
+          return 200;
+      default:
+          return 0;
+    } 
+  }
+
+  getIconY(idIcon){
+    switch(idIcon) {
+      case 'rm':
+          return 0;
+      case 'me':
+          return 0;
+      case 'projs':
+          return 80;
+      case 'skills':
+          return 80;
+      case 'iovinci':
+          return 160;
+      case 'unnamedGame':
+          return 160;
+      case 'coworkers':
+          return 160;
+      default:
+          return 0;
+    }
+  }
+
+  getWindX(idWind){
+    //Verify the wind will not pop outside the screen
+    var x = 15 * this.getWindPosById(idWind);
+    if(window.innerWidth < (450 + x)){
+      x = 0;
+    }
+    return x
+  }
+
 
 
     render(){
@@ -188,10 +242,10 @@ class App extends React.Component {
         <ThemeProvider theme={original}>
           <div className = "desktop">
             {this.state.allIcons.map(item => (
-              <Icon openWindow={this.openWindow} idWindow={item.idWindow} image={item.img} name={item.name} x={80 * this.getIconPosById(item.idIcon)} y={0}></Icon>
+              <Icon openWindow={this.openWindow} idWindow={item.idWindow} image={item.img} name={item.name} x={this.getIconX(item.idIcon)} y={this.getIconY(item.idIcon)}></Icon>
             ))}
             {this.state.windowsOpenRender.map(item => (
-              <Window_comp key={item.idWindow} id={item.idWindow} closeWindow={this.closeWindow} openWindow={this.openWindow} setActive={this.setActive} x={15 * this.getWindPosById(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)} changeIndex={item.changeIndex} name={item.name}></Window_comp>
+              <Window_comp key={item.idWindow} id={item.idWindow} closeWindow={this.closeWindow} openWindow={this.openWindow} setActive={this.setActive} x={this.getWindX(item.idWindow)} y={45 * this.getWindPosById(item.idWindow)} changeIndex={item.changeIndex} name={item.name}></Window_comp>
             ))}
           </div>
         {/* <div className = "task_bar"> */}

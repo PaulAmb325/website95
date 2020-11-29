@@ -105,9 +105,7 @@ function Projects_Wind(props) {
     };
     
     useEffect (() => {
-        console.log('useEffect', props)
         if(props.defaultSearch && props.defaultSearch!=='' && props.defaultSearch !== search.searchValue){
-            console.log(props.defaultSearch)
             setSearch({ searchValue: props.defaultSearch})
         }
     });
