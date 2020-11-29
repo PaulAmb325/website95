@@ -11,6 +11,8 @@ function ReadMe_Wind() {
                 <p>You can reach me using my social network links at the bottom right of the page</p>
                 <p>Have a fun time exploring this website !</p>
                 <p>The Website is still under construction so some things might broke, I would be glad to have your feedback if you got some advices!</p>
+                <br />
+                <p>You can use this website on mobile but the experience will not be as good as on desktop</p>
             </Fieldset>
         </div>
   
